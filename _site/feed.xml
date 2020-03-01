@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Huy's blog</title>
+    <description>A virtual proof that I'm awesome</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Sổ tay Ubuntu</title>
+        <description>
+          
+          Lệnh thường dùng linux Hiện toàn bộ ổ cứng: df -h Truyền file qua mạng LAN sftp(security file transfer protocol): Connect: $ sftp user@192.xxx.xxx.xxx Truyền file qua pscp: pscp path\remote\file userid@ip:/tmp/foo/info.txt Trước tiên phải cài: sudo apt-get install openssh-server File nén: Giải nén file đã được chia nhỏ: cat splitted_zip_file.zip*...
+        </description>
+        <pubDate>Sun, 01 Mar 2020 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/2020-03-01-ubuntu_handbook/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-03-01-ubuntu_handbook/</guid>
+      </item>
+    
+      <item>
+        <title>Hướng dẫn cài đặt và lập trình OpenCV (3.4.4) trên Ubuntu 16.04 C++ và Python</title>
+        <description>
+          
+          Chào các bạn, mình là dân Cơ điện tử, chẳng thuần điện, chẳng thuần cơ, cũng chẳng thuần IT. Mình đã tiếp xúc với OpenCV từ khá lâu, nhưng trước đây lập trình trên VS, cũng theo các hướng dẫn để cài đặt OpenCV sau đó sử dụng, được 1...
+        </description>
+        <pubDate>Sun, 01 Mar 2020 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/2020-03-01-hd_caidat_OpenCV/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-03-01-hd_caidat_OpenCV/</guid>
+      </item>
+    
+      <item>
+        <title>Hướng dẫn cài đặt Xmind 8 trên Ubuntu</title>
+        <description>
+          
+          Hướng dẫn cài đặt Xmind 8 trên Ubuntu Chắc hẳn các bạn đã quen thuộc với công cụ mindmap, trên window có Mind Manager tuy mất phí nhưng bạn có thể dễ dàng “cờ rắc” được, còn trên Ubuntu thì tương đối hạn chế, có freemind (nhẹ, nhưng lại đơn...
+        </description>
+        <pubDate>Sun, 01 Mar 2020 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/2020-03-01-hd-caidat-xmind8/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-03-01-hd-caidat-xmind8/</guid>
+      </item>
+    
+  </channel>
+</rss>

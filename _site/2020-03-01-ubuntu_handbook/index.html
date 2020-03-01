@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Sổ tay Ubuntu</title>
+
+  <meta name="author" content="Huy NV" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Huy's blog - A virtual proof that I'm awesome" href="http://localhost:4000/feed.xml" />
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Sổ tay Ubuntu" />
+  
+
+   
+  <meta property="og:description" content="Lệnh thường dùng linux Hiện toàn bộ ổ cứng: df -h Truyền file qua mạng LAN sftp(security file transfer protocol): Connect: $ sftp user@192.xxx.xxx.xxx Truyền file qua pscp: pscp path\remote\file userid@ip:/tmp/foo/info.txt Trước tiên phải cài: sudo apt-get install openssh-server File nén: Giải nén file đã được chia nhỏ: cat splitted_zip_file.zip*...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2020-03-01-ubuntu_handbook/" />
+  <link rel="canonical" href="http://localhost:4000/2020-03-01-ubuntu_handbook/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/avt.jpg" />
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Sổ tay Ubuntu" />
+  
+
+  
+  <meta name="twitter:description" content="Lệnh thường dùng linux Hiện toàn bộ ổ cứng: df -h Truyền file qua mạng LAN sftp(security file transfer protocol): Connect: $ sftp user@192.xxx.xxx.xxx Truyền file qua pscp: pscp path\remote\file userid@ip:/tmp/foo/info.txt Trước tiên phải cài: sudo apt-get install openssh-server File nén: Giải nén file đã được chia nhỏ: cat splitted_zip_file.zip*...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/avt.jpg" />
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button><a class="navbar-brand" href="http://localhost:4000/">Huy's blog</a></div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="/aboutme">About Me</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+              <a href="http://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+          <li><a href="https://huyhust13.github.io">Author's home</a></li></ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000/">
+	      <img class="avatar-img" src="/img/avt.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Sổ tay Ubuntu</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 1, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="lệnh-thường-dùng-linux">Lệnh thường dùng linux</h1>
+
+<ul>
+  <li>Hiện toàn bộ ổ cứng: <code class="highlighter-rouge">df -h</code></li>
+  <li>Truyền file qua mạng LAN sftp(security file transfer  protocol):
+    <ul>
+      <li>Connect:  <code class="highlighter-rouge">$ sftp user@192.xxx.xxx.xxx</code></li>
+    </ul>
+  </li>
+  <li>Truyền file qua pscp:
+<code class="highlighter-rouge">pscp path\remote\file userid@ip:/tmp/foo/info.txt</code></li>
+  <li>Trước tiên phải cài: <code class="highlighter-rouge">sudo apt-get install openssh-server</code></li>
+</ul>
+
+<h3 id="file-nén">File nén:</h3>
+<ul>
+  <li>
+    <p>Giải nén file đã được chia nhỏ:</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">cat splitted_zip_file.zip* &gt; zip_file.zip</code> để  nối các file .zip.xxx thành 1 file lớn.
+  (Lệnh này có thể dẫn tới việc bộ nhớ đệm của gedit bị tăng lên, sau khi thực hiện xong, mở system monitor để kiểm tra và kill processing)</li>
+      <li><code class="highlighter-rouge">unzip zip_file.zip</code> để giải nén</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="phím-tắt">Phím tắt</h3>
+<ul>
+  <li>Chụp màn hình 1 vùng:  &lt;Shift + Print&gt;</li>
+  <li>Chụp một vùng màn hình và copy luôn: &lt;Shift + Ctrl + Print&gt;</li>
+</ul>
+
+<h3 id="ưu-tiên-mạng-khi-dùng-nhiều-card-mạng">Ưu tiên mạng khi dùng nhiều card mạng</h3>
+<ul>
+  <li><code class="highlighter-rouge">route -n</code> để hiện các card mạng</li>
+  <li><code class="highlighter-rouge">ifconfig &lt;ten_card_mang&gt; &lt;ip&gt;</code>: đặt ip cho card mạng đó.</li>
+  <li><code class="highlighter-rouge">ifmetric &lt;ten_card_mang&gt; &lt;so_metric&gt;</code>: thiết lập metric, số metric càng thấp thì ưu tiên càng cao.</li>
+</ul>
+
+<h3 id="uninstall-app">Uninstall app:</h3>
+<p><code class="highlighter-rouge">sudo apt-get --purge remove program</code></p>
+
+<h3 id="install-nvidia-driver-home-pc-ubuntu-1604--gtx1650">Install nvidia driver home pc (ubuntu 16.04 + gtx1650)</h3>
+<p>Step-1: Obviously starting with an update and upgrade</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get upgrade
+</code></pre></div></div>
+
+<p>Step-2: Then remove all Nvidia packages (skip this if your OS is fresh installed) :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get remove nvidia*
+sudo apt autoremove
+</code></pre></div></div>
+<p>Step-3: Install these packages for building the kernel:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install dkms build-essential linux-headers-$(uname -r)
+</code></pre></div></div>
+<p>Step-4: Now block and disable Nouveau kernel driver:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "# Disable the default Nouveau kernel driver" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
+echo "# -----------------------------------------" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
+echo "blacklist nouveau" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
+echo "blacklist lbm-nouveau" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
+echo "options nouveau modeset=0" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
+echo "alias nouveau off" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
+echo "alias lbm-nouveau off" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
+</code></pre></div></div>
+<p>To list the contents of the /etc/modprobe.d/blacklist-nouveau.conf file, issue the following command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/modprobe.d/blacklist-nouveau.conf
+</code></pre></div></div>
+<p>Step-5: Disable the Kernel mode setting (KMS) by issuing this command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "options nouveau modeset=0" | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+</code></pre></div></div>
+<p>To list the contents of the /etc/modprobe.d/nouveau-kms.conf file, issue the following command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/modprobe.d/nouveau-kms.conf
+</code></pre></div></div>
+<p>Step-6: Enter the following linux command to regenerate the kernel initramfs:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo update-initramfs -u
+</code></pre></div></div>
+<p>Step-7: Reboot the system.</p>
+
+<p>Step-8: After the reboot you need to exit the X Server, for that we need to stop LightDM, press Ctrl+Alt+F1 to open up a console screen, log in with your user and password, after that:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo service lightdm stop
+</code></pre></div></div>
+<p>Step-9: Now install your Nvidia driver:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install nvidia-VERSION
+</code></pre></div></div>
+<p>Note: The value of nvidia-VERSION could be nvidia-410, nvidia-412, nvidia-418, and so on, but you must be careful in locating correct Nvidia Display Driver. Ignoring this, may result in blank screen upon reboot.</p>
+
+<p>Step-10: Reboot the system.</p>
+
+<p>Step-11: To show which loadable kernel modules are currently loaded, issue the following command:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsmod | grep nvidia
+</code></pre></div></div>
+<p>If there is an output, then the installation of nvidia is successful!</p>
+
+<p>Step-12: Now issue the following command to know which display driver is loaded:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo lshw -c video | grep 'configuration'
+</code></pre></div></div>
+<p><em><a href="https://askubuntu.com/questions/1129516/black-screen-at-boot-after-nvidia-driver-installation-on-ubuntu-18-04-2-lts">refer link</a></em></p>
+
+<h4 id="login-loop-error">login loop error:</h4>
+<ul>
+  <li>Using <code class="highlighter-rouge">Ctrl + Alt + F2</code> to login commandline mode</li>
+  <li>Then remove nvidia: <code class="highlighter-rouge">sudo apt remove nvidia*</code></li>
+</ul>
+
+<h4 id="black-screen-boot-with-cursor">black screen boot with cursor</h4>
+<p><em>Cannot login command line mode by <code class="highlighter-rouge">Ctrl + Alt + Fn</code></em></p>
+
+<ul>
+  <li>Using live USB ubuntu</li>
+  <li>
+    <p>First, I had to use my Ubuntu installation CD, and chose “Try Ubuntu”.</p>
+  </li>
+  <li>Next I logged into a terminal session, and have to remount my system partition (ie: /dev/sda1 is where I installed Ubuntu).
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1     /mnt
+sudo mount --bind /dev  /mnt/dev
+sudo mount --bind /proc /mnt/proc
+sudo mount --bind /sys  /mnt/sys
+sudo chroot /mnt
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>This mounts everything I need to run apt-get against my hard drive, rather than the non-persistent Ubuntu running in RAM.</p>
+  </li>
+  <li>
+    <p>Now I just have to clobber Nvidia drivers, so I can get my system booting again.</p>
+  </li>
+  <li>Remove existing drivers</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get remove nvidia*
+sudo apt-get purge nvidia*
+</code></pre></div></div>
+<ul>
+  <li>Housekeeping
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get clean
+sudo apt-get autoclean
+</code></pre></div>    </div>
+  </li>
+  <li>Handle any errors to due incomplete apt-get operations
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg --configure -a
+sudo apt-get update
+sudo apt-get upgrade
+</code></pre></div>    </div>
+  </li>
+  <li>Remove xorg/X11/XFree86 references to graphics drivers
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/X11/xorg.conf
+sudo apt-get install ubuntu-desktop
+</code></pre></div>    </div>
+  </li>
+  <li>Clean up and unmount everything
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
+sudo umount /mnt/sys
+sudo umount /mnt/proc
+sudo umount /mnt/dev
+sudo umount /mnt
+exit
+</code></pre></div>    </div>
+    <p>Now, I will NOT re-install the drivers just yet. Reboot the system, and eject the liveCD. I am now able to log into my existing Ubuntu installation.</p>
+  </li>
+</ul>
+
+<p><em><a href="https://superuser.com/questions/651596/ubuntu-12-04-lts-blinking-cursor-and-cannot-start-after-nvidia-driver-upgrade/651597#651597">refer link</a></em></p>
+
+<hr />
+<h1 id="ubuntu-1604">Ubuntu (16.04)</h1>
+<h2 id="một-số-thủ-thuật">Một số thủ thuật</h2>
+
+<ol>
+  <li>Đưa về launcher mặc định ban đầu
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unity --reset-icons
+</code></pre></div>    </div>
+    <p><a href="http://ubuntuhandbook.org/index.php/2014/04/reset-unity-and-compiz-settings-in-ubuntu-14-04/">Tham khảo</a></p>
+  </li>
+  <li>Đưa lancher xuống dưới màn hình
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+</code></pre></div>    </div>
+    <p>Thay <code class="highlighter-rouge">Bottom</code> bằng <code class="highlighter-rouge">Left</code> nếu muốn đưa về cạnh trái</p>
+  </li>
+</ol>
+
+<p><a href="https://www.howtogeek.com/251616/how-to-move-the-unity-desktops-launcher-to-the-bottom-of-your-screen-on-ubuntu-16.04/">Tham khảo</a></p>
+
+<ol>
+  <li>
+    <p>Sử dụng nhiều card mạng trên cùng 1 máy tính
+Mình sử dụng 2 card mạng: 1 để thông với internet bên ngoài, 1 để kết nối với mạch zcu.<br />
+Đặt ip tĩnh cho 2 mạng với 2 defaul gateway khác nhau.<br />
+Dùng <code class="highlighter-rouge">ip route</code> để xem bảng route. Máy sẽ ưu tiên chọn route nào có <code class="highlighter-rouge">metric</code> nhỏ hơn trước. Ví dụ mình muốn ưu tiên gateway để thông lên internet thì dùng lệnh <code class="highlighter-rouge">sudo ifmetric enx00ea4c6d0753 200</code> để thiết lập metric cho card mạng enx00ea4c6d0753 thành 200.<br />
+Một số lệnh: <code class="highlighter-rouge">ip route</code>, <code class="highlighter-rouge">traceroute 8.8.8.8</code> …<br />
+Tham khảo:
+ https://superuser.com/questions/331720/how-do-i-set-the-priority-of-network-connections-in-ubuntu</p>
+  </li>
+  <li>
+    <p>Export .md thành pdf trên vs code</p>
+  </li>
+  <li>Cài đặt máy ubuntu làm server
+    <ul>
+      <li>Cài ssh server:
+        <ul>
+          <li><code class="highlighter-rouge">apt-get install openssh-server</code></li>
+          <li><code class="highlighter-rouge">systemctl enable ssh</code></li>
+          <li><code class="highlighter-rouge">systemctl start ssh</code></li>
+          <li><a href="https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/">link tham khao</a></li>
+        </ul>
+      </li>
+      <li>Đổi port ssh server:
+        <ul>
+          <li><code class="highlighter-rouge">sudo nano /etc/ssh/sshd_config</code></li>
+          <li>Tìm kiếm dòng <code class="highlighter-rouge">port 22</code>, đổi port số 22 thành số khác (2247)</li>
+        </ul>
+      </li>
+      <li>allow firewall:
+        <ul>
+          <li><code class="highlighter-rouge">sudo ufw allow 22/tcp</code></li>
+        </ul>
+      </li>
+      <li>setup ip tĩnh</li>
+      <li>reboot máy</li>
+    </ul>
+  </li>
+  <li>
+    <p>Mount disk on start:</p>
+
+    <p>Tham khảo: https://csetutorials.com/auto-mount-ntfs-partitions-startup-ubuntu-linux.html</p>
+  </li>
+</ol>
+
+<h2 id="một-số-lỗi">Một số lỗi</h2>
+<ul>
+  <li>Lỗi “log in loop ubuntu” (boot đến đoạn log in, sau khi log in thì bị màn hình đen rồi sau đó lại trở về màn hình login)
+    <ul>
+      <li><code class="highlighter-rouge">Ctrl + Alt + F1</code>, sau đó login vào….
+        <h3 id="lỗi-network-driver-sau-khi-cài-ubuntu-trên-máy-bàn">Lỗi network driver sau khi cài ubuntu trên máy bàn</h3>
+        <p>Download driver here:
+https://downloadcenter.intel.com/dow…?product=71307</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Extract &amp; cd into e1000e-3.3.5.3/src</p>
+
+<p>Edit nvm.c, function e1000e_validate_nvm_checksum_generic (line 563) to (thêm cặp /<em>…</em>/):</p>
+
+<p>Code:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s32 e1000e_validate_nvm_checksum_generic(struct e1000_hw *hw)
+{
+    /*
+    s32 ret_val;
+    u16 checksum = 0;
+    u16 i, nvm_data;
+
+
+    for (i = 0; i &lt; (NVM_CHECKSUM_REG + 1); i++) {
+        ret_val = e1000_read_nvm(hw, i, 1, &amp;nvm_data);
+        if (ret_val) {
+            e_dbg("NVM Read Error\n");
+            return ret_val;
+        }
+        checksum += nvm_data;
+    }
+
+
+    if (checksum != (u16)NVM_SUM) {
+        e_dbg("NVM Checksum Invalid\n");
+        return -E1000_ERR_NVM;
+    }
+    */
+
+
+    return 0;
+}
+</code></pre></div></div>
+
+<p>Build &amp; install
+Code:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
+
+
+sudo rmmod e1000e
+sudo make install
+sudo modprobe e1000e
+</code></pre></div></div>
+<p>It should work now</p>
+
+<p>Source: https://unix.stackexchange.com/a/295052/23506</p>
+
+<p>P.S. Checked on:</p>
+
+<p>% lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description: Ubuntu 16.04.2 LTS
+Release: 16.04
+Codename: xenial</p>
+
+<p>% uname -a
+Linux 4.4.0-66-generic #87-Ubuntu SMP Fri Mar 3 15:29:05 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</p>
+
+<h2 id="ubuntu-1804">Ubuntu (18.04)</h2>
+<ol>
+  <li>Thay đổi độ sáng màn hình PC:
+    <ul>
+      <li>Xem list màn hình:
+  ` xrandr –listmonitors`</li>
+      <li>Thiết lập độ sáng:
+  ` xrandr –output HDMI-0 –brightness 0.7`</li>
+    </ul>
+  </li>
+  <li>
+    <p>Enable workspace:
+http://ubuntuhandbook.org/index.php/2019/01/get-2x2-grid-workspaces-ubuntu-18-04/</p>
+  </li>
+  <li>Shutdown/reboot:
+    <ul>
+      <li>ubuntu 18.04.03 không tắt/restart được sau khi cài Nvidia driver.
+reboot bằng: <code class="highlighter-rouge">sudo reboot -f</code></li>
+    </ul>
+  </li>
+  <li>Không thể tạo, xóa, sửa trong ổ cứng khác:
+<code class="highlighter-rouge">sudo mount -o remount,rw /dev/sda1</code></li>
+</ol>
+
+<h2 id="command-line">Command line</h2>
+<ul>
+  <li><code class="highlighter-rouge">top -d 1</code>: resourse monitor</li>
+</ul>
+
+<h2 id="install-kodi">install Kodi:</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:team-xbmc/ppa
+sudo apt-get update
+sudo apt-get install kodi
+</code></pre></div></div>
+
+<p>Add IPTV to TV live:
+link iptv: https://vntvbox.com/list-tv-dung-cho-iptv-cap-nhat-lien-tuc-id3454.html</p>
+
+<h2 id="run-gui-python-on-startup">Run Gui python on startup</h2>
+<p>link: https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup#method-2-autostart</p>
+
+<p>Tạo file .desktop để chạy chtrinh cần giao diện.</p>
+
+<h2 id="reset-ubuntu-display">Reset Ubuntu display</h2>
+<p><code class="highlighter-rouge">dconf reset -f /</code>
+Logout -&gt; Log in</p>
+
+<p>Nếu không được thì tham khảo thêm <a href="https://askubuntu.com/questions/362135/how-to-re-enable-tray-icons-for-applications-in-ubuntu/370654#370654">tại đây</a></p>
+
+<h2 id="find-search-in-command-line">Find, Search in command line</h2>
+<ul>
+  <li>Find file name: <code class="highlighter-rouge">find path/to/folder -name "file"</code></li>
+  <li>Search file include text: 
+<code class="highlighter-rouge">grep -rnw path/to/folder -e 'text'</code></li>
+</ul>
+
+      </article>
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+  <!--- Share on Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2020-03-01-ubuntu_handbook%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2020-03-01-ubuntu_handbook%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2020-03-01-hd_caidat_OpenCV/" data-toggle="tooltip" data-placement="top" title="Hướng dẫn cài đặt và lập trình OpenCV (3.4.4) trên Ubuntu 16.04 C++ và Python">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+        <div class="justcomments-comments">
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="mailto:huyhust13@gmail.com" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li><li><a href="https://www.facebook.com/huyhust13" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </li><li><a href="https://github.com/huyhust13" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Huy NV
+      &nbsp;&bull;&nbsp;
+      2020
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+          document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  </body>
+</html>

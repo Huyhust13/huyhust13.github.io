@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Hướng dẫn cài đặt Xmind 8 trên Ubuntu</title>
+
+  <meta name="author" content="Huy NV" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Huy's blog - A virtual proof that I'm awesome" href="http://localhost:4000/feed.xml" />
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Hướng dẫn cài đặt Xmind 8 trên Ubuntu" />
+  
+
+   
+  <meta property="og:description" content="Hướng dẫn cài đặt Xmind 8 trên Ubuntu Chắc hẳn các bạn đã quen thuộc với công cụ mindmap, trên window có Mind Manager tuy mất phí nhưng bạn có thể dễ dàng “cờ rắc” được, còn trên Ubuntu thì tương đối hạn chế, có freemind (nhẹ, nhưng lại đơn...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2020-03-01-hd-caidat-xmind8/" />
+  <link rel="canonical" href="http://localhost:4000/2020-03-01-hd-caidat-xmind8/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/avt.jpg" />
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Hướng dẫn cài đặt Xmind 8 trên Ubuntu" />
+  
+
+  
+  <meta name="twitter:description" content="Hướng dẫn cài đặt Xmind 8 trên Ubuntu Chắc hẳn các bạn đã quen thuộc với công cụ mindmap, trên window có Mind Manager tuy mất phí nhưng bạn có thể dễ dàng “cờ rắc” được, còn trên Ubuntu thì tương đối hạn chế, có freemind (nhẹ, nhưng lại đơn...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/avt.jpg" />
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button><a class="navbar-brand" href="http://localhost:4000/">Huy's blog</a></div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="/aboutme">About Me</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+              <a href="http://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+          <li><a href="https://huyhust13.github.io">Author's home</a></li></ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000/">
+	      <img class="avatar-img" src="/img/avt.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Hướng dẫn cài đặt Xmind 8 trên Ubuntu</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 1, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="hướng-dẫn-cài-đặt-xmind-8-trên-ubuntu">Hướng dẫn cài đặt Xmind 8 trên Ubuntu</h1>
+<p>Chắc hẳn các bạn đã quen thuộc với công cụ mindmap, trên window có Mind Manager tuy mất phí nhưng bạn có thể dễ dàng “cờ rắc” được, còn trên Ubuntu thì tương đối hạn chế, có freemind (nhẹ, nhưng lại đơn giản quá, hơi thiếu chức năng), XMind Zen thì mất phí. Mình chọn dùng Xmind 8 vì nó “vừa đủ” chức năng của một bản free.</p>
+<h2 id="cài-java">Cài Java</h2>
+<p><a href="https://www.guru99.com/how-to-install-java-on-ubuntu.html">link hướng dẫn</a>
+Các bạn lưu ý chọn phiên bản java8 (Vì mình cài bản 12 thì không chạy được)</p>
+
+<h2 id="cài-đặt-xmind">Cài đặt XMind</h2>
+<ol>
+  <li>Download<br />
+Các bạn vào <a href="https://www.xmind.net/download/xmind8">link này</a> để down bản xmind 8 dùng cho ubuntu về (đây là file .zip).</li>
+  <li>Giải Nén
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip &lt;ten_file_xmind&gt;.zip -d xmind
+</code></pre></div>    </div>
+  </li>
+  <li>Move thư mục xmind tới /opt/
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv xmind /opt/
+</code></pre></div>    </div>
+  </li>
+  <li>Cấp quyền ghi cho thư mục configuration
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod a+x /opt/xind/XMind\_amd64/configuration
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Sửa file config /opt/xmind/XMind_amd64/XMind.ini</p>
+
+    <p>Dòng thứ 2: <code class="highlighter-rouge">Sửa ./configuration</code> thành <code class="highlighter-rouge">/opt/xmind/XMind_amd64/configuration</code> 
+ Tạo thư mục <code class="highlighter-rouge">workspace/</code> trong <code class="highlighter-rouge">/opt/xmind/</code> và cấp quyền ghi cho nó
+ Dòng thứ 4: sửa ../workspace thành <code class="highlighter-rouge">/opt/xmind/workspace</code>
+ Dòng 6 &amp; 8: Sửa ../plugins thành <code class="highlighter-rouge">/opt/xmind/plugins</code></p>
+  </li>
+  <li>Tạo file xmind.desktop
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /usr/share/applications/xmind.desktop
+</code></pre></div>    </div>
+    <p>Paste nội dung như sau:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Desktop Entry]
+Comment=Create and share mind maps
+Exec=/opt/xmind/XMind_amd64/XMind  %F
+Name=XMind
+Terminal=false
+Type=Application
+Categories=Office
+Icon=/opt/xmind/xmind.jpg
+</code></pre></div>    </div>
+    <p><em>Trước đó, bạn hãy lên gg search lấy 1 icon xmind <a href="https://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;ved=2ahUKEwib_fmzjd7iAhWXdHAKHc37B80QjRx6BAgBEAU&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FXMind&amp;psig=AOvVaw18eiz7bYiUkYeCGQYO1zog&amp;ust=1560228277091650">có thể dùng ảnh này</a>, lưu về trong thư mục <code class="highlighter-rouge">/opt/xmind/</code> hoặc bất kì đâu rồi dẫn link tới trong lệnh <code class="highlighter-rouge">Icon=...</code></em>.</p>
+  </li>
+</ol>
+
+<p>Cấp quyền thực thi cho file xmind.desktop</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod +x /usr/share/applications/xmind.desktop
+</code></pre></div></div>
+
+<p>Kiểm tra cài đặt thành công hay không, các bạn vào launcher, tìm đến xmind và bật nó lên…</p>
+
+<p><img src="/img/xmind_1.png" alt="alt text" />
+Done!</p>
+
+      </article>
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+  <!--- Share on Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2020-03-01-hd-caidat-xmind8%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2020-03-01-hd-caidat-xmind8%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        
+        <li class="next">
+          <a href="/2020-03-01-hd_caidat_OpenCV/" data-toggle="tooltip" data-placement="top" title="Hướng dẫn cài đặt và lập trình OpenCV (3.4.4) trên Ubuntu 16.04 C++ và Python">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+        <div class="justcomments-comments">
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="mailto:huyhust13@gmail.com" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li><li><a href="https://www.facebook.com/huyhust13" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </li><li><a href="https://github.com/huyhust13" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Huy NV
+      &nbsp;&bull;&nbsp;
+      2020
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+          document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  </body>
+</html>

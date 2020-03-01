@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Hướng dẫn cài đặt và lập trình OpenCV (3.4.4) trên Ubuntu 16.04 C++ và Python</title>
+
+  <meta name="author" content="Huy NV" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Huy's blog - A virtual proof that I'm awesome" href="http://localhost:4000/feed.xml" />
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Hướng dẫn cài đặt và lập trình OpenCV (3.4.4) trên Ubuntu 16.04 C++ và Python" />
+  
+
+   
+  <meta property="og:description" content="Chào các bạn, mình là dân Cơ điện tử, chẳng thuần điện, chẳng thuần cơ, cũng chẳng thuần IT. Mình đã tiếp xúc với OpenCV từ khá lâu, nhưng trước đây lập trình trên VS, cũng theo các hướng dẫn để cài đặt OpenCV sau đó sử dụng, được 1...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2020-03-01-hd_caidat_OpenCV/" />
+  <link rel="canonical" href="http://localhost:4000/2020-03-01-hd_caidat_OpenCV/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/avt.jpg" />
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Hướng dẫn cài đặt và lập trình OpenCV (3.4.4) trên Ubuntu 16.04 C++ và Python" />
+  
+
+  
+  <meta name="twitter:description" content="Chào các bạn, mình là dân Cơ điện tử, chẳng thuần điện, chẳng thuần cơ, cũng chẳng thuần IT. Mình đã tiếp xúc với OpenCV từ khá lâu, nhưng trước đây lập trình trên VS, cũng theo các hướng dẫn để cài đặt OpenCV sau đó sử dụng, được 1...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/avt.jpg" />
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button><a class="navbar-brand" href="http://localhost:4000/">Huy's blog</a></div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="/aboutme">About Me</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+              <a href="http://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+          <li><a href="https://huyhust13.github.io">Author's home</a></li></ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000/">
+	      <img class="avatar-img" src="/img/avt.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Hướng dẫn cài đặt và lập trình OpenCV (3.4.4) trên Ubuntu 16.04 C++ và Python</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 1, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <p>Chào các bạn, mình là dân Cơ điện tử, chẳng thuần điện, chẳng thuần cơ, cũng chẳng thuần IT. Mình đã tiếp xúc với OpenCV từ khá lâu, nhưng trước đây lập trình trên VS, cũng theo các hướng dẫn để cài đặt OpenCV sau đó sử dụng, được 1 thời gian ngắn xong cái đồ án tốt nghiệp rồi lại thôi. Sau này đi làm thì học thêm Python, lại cài OpenCV trên Ubuntu để sử dụng Python, cũng cài như các hướng dẫn trên mạng xong lập trình trên Python bập bõm cũng ok. Được thời gian ngắn lại bỏ đấy. Giờ mới quay lại lập trình bằng C++ thì mấy ngày liền không thể build được do cái lỗi thư viện và trên máy tính mình giờ đây có hàng tá opencv các phiên bản khác nhau. Thư viện trong python2.7 sử dụng trong ROS, opencv trong usr/local/lib, openvino, anaconda… bao nhiêu thể loại, bao nhiêu lần cài đặt nhưng chả hiểu cái vẹo gì.</p>
+
+<p>Tự dưng hôm nay được một ngày đẹp trời, mình ngồi quyết tâm khám phá cái thư viện opencv để cài đặt và sử dụng trên ubuntu cho C++ mới vỡ ra được  nhiều điều. Sau đây mình xin hướng dẫn các bạn cách cài đặt và fix một số lỗi của OpenCV.</p>
+
+<p>#Tiền cài đặt
+Kiểm tra xem trong máy tính của bạn đã cài đặt opencv ở đâu chưa</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$&gt;</span> <span class="nb">sudo </span>find / <span class="nt">-name</span> <span class="s2">"*opencv*"</span>
+</code></pre></div></div>
+<p>Nếu tồn tại nhiều vị trí cài đặt opencv trong máy mà chỗ nào bạn biết không sử dụng thì có thể sử dụng lệnh sau để xóa bỏ:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$&gt;</span> <span class="nb">sudo </span>find / <span class="nt">-name</span> <span class="s2">"*opencv*"</span> <span class="nt">-exec</span> rm <span class="nt">-i</span> <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div></div>
+<p>Trong đó, dấu ‘/’ là tìm trong toàn bộ thư mục gốc computer, bạn có thể thay đổi folder để giới hạn tìm. Câu lệnh trên chỉ xóa được các file, muốn xóa folder thì thay ‘-i’ bằng ‘-r’ để xóa các folder.</p>
+
+<h1 id="cài-đặt">Cài đặt</h1>
+<p>Tạo file install_opencv.sh với nội dung như sau:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"OpenCV installation by learnOpenCV.com"</span>
+ 
+<span class="c">#Specify OpenCV version</span>
+<span class="nv">cvVersion</span><span class="o">=</span><span class="s2">"3.4.4"</span>
+
+<span class="c"># Clean build directories</span>
+rm <span class="nt">-rf</span> opencv/build
+rm <span class="nt">-rf</span> opencv_contrib/build
+
+<span class="c"># Create directory for installation</span>
+mkdir installation
+mkdir installation/OpenCV-<span class="s2">"</span><span class="nv">$cvVersion</span><span class="s2">"</span>
+
+<span class="c"># Save current working directory</span>
+<span class="nv">cwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+
+<span class="nb">sudo </span>apt <span class="nt">-y</span> update
+<span class="nb">sudo </span>apt <span class="nt">-y</span> upgrade
+
+<span class="nb">sudo </span>apt <span class="nt">-y</span> remove x264 libx264-dev
+ 
+<span class="c">## Install dependencies</span>
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install build-essential checkinstall cmake pkg-config yasm
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install git gfortran
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libjpeg8-dev libjasper-dev libpng12-dev
+ 
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libtiff5-dev
+ 
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libtiff-dev
+ 
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libxine2-dev libv4l-dev
+<span class="nb">cd</span> /usr/include/linux
+<span class="nb">sudo </span>ln <span class="nt">-s</span> <span class="nt">-f</span> ../libv4l1-videodev.h videodev.h
+<span class="nb">cd</span> <span class="nv">$cwd</span>
+ 
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libgtk2.0-dev libtbb-dev qt5-default
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libatlas-base-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libfaac-dev libmp3lame-dev libtheora-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libvorbis-dev libxvidcore-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libopencore-amrnb-dev libopencore-amrwb-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libavresample-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install x264 v4l-utils
+ 
+<span class="c"># Optional dependencies</span>
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libprotobuf-dev protobuf-compiler
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libgoogle-glog-dev libgflags-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
+
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install python3-dev python3-pip python3-venv
+<span class="nb">sudo</span> <span class="nt">-H</span> pip3 install <span class="nt">-U</span> pip numpy
+<span class="nb">sudo </span>apt <span class="nt">-y</span> install python3-testresources
+
+<span class="nb">cd</span> <span class="nv">$cwd</span>
+<span class="c">############ For Python 3 ############</span>
+<span class="c"># create virtual environment</span>
+python3 <span class="nt">-m</span> venv OpenCV-<span class="s2">"</span><span class="nv">$cvVersion</span><span class="s2">"</span><span class="nt">-py3</span>
+<span class="nb">echo</span> <span class="s2">"# Virtual Environment Wrapper"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">echo</span> <span class="s2">"alias workoncv-</span><span class="nv">$cvVersion</span><span class="s2">=</span><span class="se">\"</span><span class="s2">source </span><span class="nv">$cwd</span><span class="s2">/OpenCV-</span><span class="nv">$cvVersion</span><span class="s2">-py3/bin/activate</span><span class="se">\"</span><span class="s2">"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">source</span> <span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span>/OpenCV-<span class="s2">"</span><span class="nv">$cvVersion</span><span class="s2">"</span><span class="nt">-py3</span>/bin/activate
+ 
+<span class="c"># now install python libraries within this virtual environment</span>
+pip install wheel numpy scipy matplotlib scikit-image scikit-learn ipython dlib
+  
+<span class="c"># quit virtual environment</span>
+deactivate
+<span class="c">######################################</span>
+
+git clone https://github.com/opencv/opencv.git
+<span class="nb">cd </span>opencv
+git checkout <span class="nv">$cvVersion</span>
+<span class="nb">cd</span> ..
+ 
+git clone https://github.com/opencv/opencv_contrib.git
+<span class="nb">cd </span>opencv_contrib
+git checkout <span class="nv">$cvVersion</span>
+<span class="nb">cd</span> ..
+
+<span class="nb">cd </span>opencv
+mkdir build
+<span class="nb">cd </span>build
+
+cmake <span class="nt">-D</span> <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE <span class="se">\</span>
+            <span class="nt">-D</span> <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span><span class="nv">$cwd</span>/installation/OpenCV-<span class="s2">"</span><span class="nv">$cvVersion</span><span class="s2">"</span> <span class="se">\</span>
+            <span class="nt">-D</span> <span class="nv">INSTALL_C_EXAMPLES</span><span class="o">=</span>ON <span class="se">\</span>
+            <span class="nt">-D</span> <span class="nv">INSTALL_PYTHON_EXAMPLES</span><span class="o">=</span>ON <span class="se">\</span>
+            <span class="nt">-D</span> <span class="nv">WITH_TBB</span><span class="o">=</span>ON <span class="se">\</span>
+            <span class="nt">-D</span> <span class="nv">WITH_V4L</span><span class="o">=</span>ON <span class="se">\</span>
+            <span class="nt">-D</span> <span class="nv">OPENCV_PYTHON3_INSTALL_PATH</span><span class="o">=</span><span class="nv">$cwd</span>/OpenCV-<span class="nv">$cvVersion</span><span class="nt">-py3</span>/lib/python3.5/site-packages <span class="se">\</span>
+        <span class="nt">-D</span> <span class="nv">WITH_QT</span><span class="o">=</span>ON <span class="se">\</span>
+        <span class="nt">-D</span> <span class="nv">WITH_OPENGL</span><span class="o">=</span>ON <span class="se">\</span>
+        <span class="nt">-D</span> <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>../../opencv_contrib/modules <span class="se">\</span>
+        <span class="nt">-D</span> <span class="nv">BUILD_EXAMPLES</span><span class="o">=</span>ON ..
+
+make <span class="nt">-j4</span>
+make install
+
+<span class="nb">echo</span> <span class="s2">"Installation Completed!"</span>
+</code></pre></div></div>
+<p>Copy file install_opencv.sh tới thư mục chứa các file cài đặt mà bạn muốn đặt vào. (Theo mình thì nên tạo 1 folder /home/OpenCV) Bởi vì sau khi cài đặt nó sẽ tạo ra 1 số folder tại cùng mức với vị trí để file install_opencv.sh như /installation, /opencv, /OpenCV-<version_number>-py3, /opencv_contrib.</version_number></p>
+
+<p>Cấp quyền thực thi cho file cài đặt:
+Terminal và dẫn vào folder chứa file cài đặt
+<code class="highlighter-rouge">sudo chmod +x install_opencv.sh</code> 
+Chạy file cài đặt:
+<code class="highlighter-rouge">sudo ./install_opencv.sh</code>
+&lt;đợi cho quá trình cài đặt kết thúc. Trong quá trình cài đặt đôi chỗ sẽ hỏi có cài hay không (Y/N)?&gt;</p>
+
+<p>Sau khi bạn cài đặt xong, thư viện cài đặt trong /installation/OpenCV-&lt;cvVersion&gt;/</p>
+
+<p>#Compile OpenCV C++ bằng g++
+Tạo file test_cv_01.cpp với nội dung như sau:</p>
+<pre><code class="language-C++">#include &lt;opencv2/opencv.hpp&gt;
+#include &lt;iostream&gt;
+
+using namespace cv;
+using namespace std; 
+//int main( int argc, char** argv )
+ int main(){
+  
+  Mat image;
+  image = imread("cong_phuong.jpg" , CV_LOAD_IMAGE_COLOR);
+  
+   if(! image.data ) {
+       cout &lt;&lt;  "Could not open or find the image" &lt;&lt; std::endl ;
+       return -1;
+     }
+  
+   cv::namedWindow( "Display window", cv::WINDOW_AUTOSIZE );
+   cv::imshow( "Display window", image );
+  
+   cv::waitKey(0);
+  return 0;
+}
+</code></pre>
+<ul>
+  <li>Cách 1:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g++ test_cv_01.cpp <span class="nt">-o</span> test_cv_01 <span class="sb">`</span>pkg-config <span class="nt">--cflags</span> <span class="nt">--libs</span> &lt;Thư mục cài đặt OpenCV&gt;/installation/OpenCV-3.4.4/lib/pkgconfig/opencv.pc<span class="sb">`</span> 
+</code></pre></div></div>
+<ul>
+  <li>Cách 2</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g++ test_cv_01.cpp <span class="nt">-o</span> test_cv_01 <span class="nt">-I</span>&lt;Thư mục cài đặt OpenCV&gt;/installation/OpenCV-3.4.4/include <span class="nt">-L</span>&lt;Thư mục cài đặt OpenCV&gt;/installation/OpenCV-3.4.4/lib <span class="nt">-lopencv_core</span> <span class="nt">-lopencv_highgui</span> <span class="nt">-lopencv_imgcodecs</span> <span class="nt">-lopencv_imgproc</span>
+</code></pre></div></div>
+<p>Run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./test_cv_01
+</code></pre></div></div>
+<p>Kết quả:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/mwvxkbfo5z_image.png" alt="ketqua1" /></p>
+
+<blockquote>
+  <p><strong><em>Một số lưu ý:</em></strong></p>
+  <ul>
+    <li>Lệnh g++ phải theo thứ tự như trên, nếu không sẽ gặp lỗi ‘undefined…’ [ketqua1]</li>
+    <li>Khi gặp bất cứ bug nào liên quan đến thư viện, điều đầu tiên cần làm là phải kiểm tra chính tả xem mình viết đúng chưa, có sai chỗ nào không (Mình đã mất mấy buổi để fix bug cuối cùng lòi ra sai chính tả, thừa, thiếu kí tự  :laughing: :laughing: :laughing:)</li>
+  </ul>
+</blockquote>
+
+<p>#Compile OpenCV C++ trên Eclipse
+##Cài đặt Eclipse
+Hướng dẫn cài đặt Eclipse bạn có thể xem ở <a href="http://ubuntuhandbook.org/index.php/2016/01/how-to-install-the-latest-eclipse-in-ubuntu-16-04-15-10/">link này</a>
+##Tạo project mới trên Eclipse
+…
+##Cấu hình môi trường Opencv trên Eclipse
+….
+<a href="https://docs.opencv.org/3.4/d7/d16/tutorial_linux_eclipse.html">link</a></p>
+
+<p>Mình sẽ viết tiếp phần hướng dẫn thiết lập môi trường, link thư viện opencv trên Eclipse sau.
+(Còn tiếp)</p>
+
+<p>#Compile bằng CMake
+Tìm hiểu cơ bản về CMake: <a href="https://kipalog.com/posts/CMake---Cong-cu-sinh-Makefile--Project-file-cho-source-code-C-C-">link 1</a>, <a href="http://derekmolloy.ie/hello-world-introductions-to-cmake/">link 2</a></p>
+
+<p>Ở đây, mình sẽ giới thiệu cách sử dụng CMake với chương trình OpenCV C++.
+Trong folder <em>CMakeOpenCV</em> mình tạo file <em>CMakeList.txt</em>, subfolder <em>build, Images, src</em>.
+Tạo file <em>displayimage.cpp</em> trong folder <em>src</em> với nội dung:</p>
+<pre><code class="language-C++">#include &lt;stdio.h&gt;
+#include &lt;opencv2/opencv.hpp&gt;
+using namespace cv;
+int main(int argc, char** argv )
+{
+    printf(CV_VERSION);
+    if ( argc != 2 )
+    {
+        printf("usage: DisplayImage.out &lt;Image_Path&gt;\n");
+        return -1;
+    }
+    Mat image;
+    image = imread( argv[1], 1 );
+    if ( !image.data )
+    {
+        printf("No image data \n");
+        return -1;
+    }
+    namedWindow("Display Image", WINDOW_AUTOSIZE );
+    imshow("Display Image", image);
+    waitKey(0);
+    return 0;
+}
+</code></pre>
+
+<p>Nội dung file <em>CMakeLists.txt</em> như sau:</p>
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cmake_minimum_required</span><span class="p">(</span>VERSION 2.8<span class="p">)</span>
+<span class="nb">project</span><span class="p">(</span>DisplayImage<span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span>OpenCV REQUIRED<span class="p">)</span>
+<span class="nb">include_directories</span><span class="p">(</span> <span class="si">${</span><span class="nv">OpenCV_INCLUDE_DIRS</span><span class="si">}</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span> DisplayImage src/displayimage.cpp<span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span>DisplayImage <span class="si">${</span><span class="nv">OpenCV_LIBS</span><span class="si">}</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Cây thư mục như sau:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/ad3s36a9p7_image.png" alt="alt text" /></p>
+
+<p>Mở Terminal, cd vào thư mục …/CMakeOpenCV/build</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cmake ..
+</code></pre></div></div>
+<p>Dấu .. ở sau là đường dẫn trỏ tới file CMakeLists.txt, vì file CMakeLists.txt nằm ngoài thư mục gốc CMakeOpenCV nên dấu .. là từ trong build lùi ra 1 thư mục.</p>
+
+<p>Sau khi chạy xong lệnh cmake, ta được kết quả như sau: 
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/d8hzqa1v5f_image.png" alt="alt text" /></p>
+
+<p>Tiếp tục:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make
+</code></pre></div></div>
+<p>Sau khi make xong, ta kiểm tra cây thư mục thấy như sau:
+<img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/orroyc7h1p_image.png" alt="alt text" /></p>
+
+<p>Chạy chương trình sau khi build xong:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>huynv@huynv-Inspiron-3668:/media/huynv/Data/8.Programming_learning/CppCmake/CMakeOpenCV/build<span class="nv">$ </span>./DisplayImage ../Images/cong_phuong.jpg 
+</code></pre></div></div>
+<p>Kết quả vẫn như hình phía trên.</p>
+
+<p>Quan sát kĩ ở console sau khi thực hiện lệnh cmake ..  ta thấy có dòng</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--</span> Found OpenCV: /opt/ros/kinetic <span class="o">(</span>found version <span class="s2">"3.3.1"</span><span class="o">)</span>
+</code></pre></div></div>
+<p>Tức là chương trình này đang link tới thư viện opencv được cài đặt trong <code class="highlighter-rouge">/opt/ros/kinetic</code>, phiên bản OpenCV 3.3.1. Nó khác với thư viện cài đặt mà mình đã hướng dẫn ở phía trên. 
+Vậy, muốn chỉ định cho chương trình hiểu được vị trí của thư viện OpenCV mình vừa cài đặt ở trên (hoặc bất kì vị trí thư viện OpenCV nào trên máy của mình) chúng ta phải làm như thế nào???
+Sau khi search rất nhiều trên mạng và thử nhiều cách thì đây là cách có hiệu quả với mình: Thêm dòng lệnh sau vào trước dòng <code class="highlighter-rouge">find_package(OpenCV REQUIRED)</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="o">(</span>CMAKE_PREFIX_PATH /home/huynv/installation/OpenCV-3.4.4/share/OpenCV<span class="o">)</span>
+</code></pre></div></div>
+<p>Hoặc có thể thay biến <strong>CMAKE_PREFIX_PATH</strong> thành biến <strong>OpenCV_DIR</strong>. Đường dẫn phía sau là đường dẫn tới thư mục cài đặt chứa file <em>OpenCVConfig.cmake</em>. Tuy nhiên, theo mình nên sử dụng biến <strong>OpenCV_DIR</strong> hơn bởi vì trong một số dự án lớn mình sẽ phải dùng nhiều gói khác nhau. Câu lệnh trên với biến <strong>OpenCV_DIR</strong> chỉ khai báo môi trường cho OpenCV, còn các thư viện khác sẽ không bị ảnh hưởng.
+Xóa sạch toàn bộ file và folder trong thư mục /build. Chạy lại các bước như trên. –&gt; OK
+(Đây là cách có hiệu quả với mình nhưng mình chưa hiểu rõ ý nghĩa của các biến môi trường trong CMake, mong các bạn góp ý  :blush: )</p>
+
+<h2 id="lỗi-opencv-với-libgstreamer">Lỗi opencv với libgstreamer</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+//usr/lib/x86_64-linux-gnu/libgstreamer-0.10.so.0: undefined reference to `xmlOutputBufferCreateFile@LIBXML2_2.4.30'
+...
+</code></pre></div></div>
+<p>Lỗi này do thư viện gstreamer</p>
+
+<p>Khắc phục:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install gstreamer1.0*
+</code></pre></div></div>
+<p>trong qúa trình cài gstreamer1.0* có thể có lỗi do thiếu thư viện, lỗi báo thiếu thư viện nào thì cài thư viện đó</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libandroid-properties1:i386 libmedia1:i386
+</code></pre></div></div>
+
+<p>–&gt; Vẫn chưa fix được lỗi đó</p>
+
+<p><strong>Nguyên nhân chính:</strong> Do không link được tới thư viện LibXml2</p>
+
+<p>Khắc phục: Thêm vào CMakeLists.txt hai dòng:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+find_package(LibXml2 REQUIRED)
+...
+include_directories(...${LIBXML2_INCLUDE_DIR})
+...
+TARGET_LINK_LIBRARIES(${name} ... ${LIBXML2_LIBRARIES}) 
+...
+</code></pre></div></div>
+
+<p><strong>Tham khảo</strong>
+[1] https://www.learnopencv.com/install-opencv-3-4-4-on-ubuntu-16-04/<br />
+[2] https://docs.opencv.org/3.4/d7/d16/tutorial_linux_eclipse.html<br />
+[3] http://ubuntuhandbook.org/index.php/2016/01/how-to-install-the-latest-eclipse-in-ubuntu-16-04-15-10/</p>
+
+
+      </article>
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+
+  
+  <!--- Share on Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2020-03-01-hd_caidat_OpenCV%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2020-03-01-hd_caidat_OpenCV%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2020-03-01-hd-caidat-xmind8/" data-toggle="tooltip" data-placement="top" title="Hướng dẫn cài đặt Xmind 8 trên Ubuntu">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2020-03-01-ubuntu_handbook/" data-toggle="tooltip" data-placement="top" title="Sổ tay Ubuntu">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+        <div class="justcomments-comments">
+          
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="mailto:huyhust13@gmail.com" title="Email me"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+              </a>
+            </li><li><a href="https://www.facebook.com/huyhust13" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </li><li><a href="https://github.com/huyhust13" title="GitHub"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      Huy NV
+      &nbsp;&bull;&nbsp;
+      2020
+
+      
+
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+          document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  </body>
+</html>
