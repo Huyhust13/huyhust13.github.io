@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sổ tay Ubuntu
-comment: True
+comment: true
 ---
 # Lệnh thường dùng linux
 
