@@ -12,7 +12,7 @@
 
   
 
-  <link rel="alternate" type="application/rss+xml" title="Huy's blog - A virtual proof that I'm awesome" href="http://localhost:4000/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Huy's blog - Mechatronics blogs" href="http://localhost:4000/feed.xml" />
 
   
 
@@ -55,6 +55,8 @@
   
 
     <!-- Facebook OpenGraph tags -->
+  
+  <meta property="fb:app_id" content="231375494570059" />
   
 
   
@@ -185,15 +187,15 @@
         <h1 id="lệnh-thường-dùng-linux">Lệnh thường dùng linux</h1>
 
 <ul>
-  <li>Hiện toàn bộ ổ cứng: <code class="highlighter-rouge">df -h</code></li>
+  <li>Hiện toàn bộ ổ cứng: <code class="language-plaintext highlighter-rouge">df -h</code></li>
   <li>Truyền file qua mạng LAN sftp(security file transfer  protocol):
     <ul>
-      <li>Connect:  <code class="highlighter-rouge">$ sftp user@192.xxx.xxx.xxx</code></li>
+      <li>Connect:  <code class="language-plaintext highlighter-rouge">$ sftp user@192.xxx.xxx.xxx</code></li>
     </ul>
   </li>
   <li>Truyền file qua pscp:
-<code class="highlighter-rouge">pscp path\remote\file userid@ip:/tmp/foo/info.txt</code></li>
-  <li>Trước tiên phải cài: <code class="highlighter-rouge">sudo apt-get install openssh-server</code></li>
+<code class="language-plaintext highlighter-rouge">pscp path\remote\file userid@ip:/tmp/foo/info.txt</code></li>
+  <li>Trước tiên phải cài: <code class="language-plaintext highlighter-rouge">sudo apt-get install openssh-server</code></li>
 </ul>
 
 <h3 id="file-nén">File nén:</h3>
@@ -202,9 +204,9 @@
     <p>Giải nén file đã được chia nhỏ:</p>
 
     <ul>
-      <li><code class="highlighter-rouge">cat splitted_zip_file.zip* &gt; zip_file.zip</code> để  nối các file .zip.xxx thành 1 file lớn.
+      <li><code class="language-plaintext highlighter-rouge">cat splitted_zip_file.zip* &gt; zip_file.zip</code> để  nối các file .zip.xxx thành 1 file lớn.
   (Lệnh này có thể dẫn tới việc bộ nhớ đệm của gedit bị tăng lên, sau khi thực hiện xong, mở system monitor để kiểm tra và kill processing)</li>
-      <li><code class="highlighter-rouge">unzip zip_file.zip</code> để giải nén</li>
+      <li><code class="language-plaintext highlighter-rouge">unzip zip_file.zip</code> để giải nén</li>
     </ul>
   </li>
 </ul>
@@ -217,30 +219,30 @@
 
 <h3 id="ưu-tiên-mạng-khi-dùng-nhiều-card-mạng">Ưu tiên mạng khi dùng nhiều card mạng</h3>
 <ul>
-  <li><code class="highlighter-rouge">route -n</code> để hiện các card mạng</li>
-  <li><code class="highlighter-rouge">ifconfig &lt;ten_card_mang&gt; &lt;ip&gt;</code>: đặt ip cho card mạng đó.</li>
-  <li><code class="highlighter-rouge">ifmetric &lt;ten_card_mang&gt; &lt;so_metric&gt;</code>: thiết lập metric, số metric càng thấp thì ưu tiên càng cao.</li>
+  <li><code class="language-plaintext highlighter-rouge">route -n</code> để hiện các card mạng</li>
+  <li><code class="language-plaintext highlighter-rouge">ifconfig &lt;ten_card_mang&gt; &lt;ip&gt;</code>: đặt ip cho card mạng đó.</li>
+  <li><code class="language-plaintext highlighter-rouge">ifmetric &lt;ten_card_mang&gt; &lt;so_metric&gt;</code>: thiết lập metric, số metric càng thấp thì ưu tiên càng cao.</li>
 </ul>
 
 <h3 id="uninstall-app">Uninstall app:</h3>
-<p><code class="highlighter-rouge">sudo apt-get --purge remove program</code></p>
+<p><code class="language-plaintext highlighter-rouge">sudo apt-get --purge remove program</code></p>
 
 <h3 id="install-nvidia-driver-home-pc-ubuntu-1604--gtx1650">Install nvidia driver home pc (ubuntu 16.04 + gtx1650)</h3>
 <p>Step-1: Obviously starting with an update and upgrade</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
 sudo apt-get upgrade
 </code></pre></div></div>
 
 <p>Step-2: Then remove all Nvidia packages (skip this if your OS is fresh installed) :</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get remove nvidia*
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get remove nvidia*
 sudo apt autoremove
 </code></pre></div></div>
 <p>Step-3: Install these packages for building the kernel:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install dkms build-essential linux-headers-$(uname -r)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install dkms build-essential linux-headers-$(uname -r)
 </code></pre></div></div>
 <p>Step-4: Now block and disable Nouveau kernel driver:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "# Disable the default Nouveau kernel driver" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "# Disable the default Nouveau kernel driver" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
 echo "# -----------------------------------------" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
 echo "blacklist nouveau" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
 echo "blacklist lbm-nouveau" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
@@ -249,47 +251,47 @@ echo "alias nouveau off" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
 echo "alias lbm-nouveau off" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
 </code></pre></div></div>
 <p>To list the contents of the /etc/modprobe.d/blacklist-nouveau.conf file, issue the following command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/modprobe.d/blacklist-nouveau.conf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/modprobe.d/blacklist-nouveau.conf
 </code></pre></div></div>
 <p>Step-5: Disable the Kernel mode setting (KMS) by issuing this command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "options nouveau modeset=0" | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "options nouveau modeset=0" | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
 </code></pre></div></div>
 <p>To list the contents of the /etc/modprobe.d/nouveau-kms.conf file, issue the following command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/modprobe.d/nouveau-kms.conf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/modprobe.d/nouveau-kms.conf
 </code></pre></div></div>
 <p>Step-6: Enter the following linux command to regenerate the kernel initramfs:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo update-initramfs -u
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo update-initramfs -u
 </code></pre></div></div>
 <p>Step-7: Reboot the system.</p>
 
 <p>Step-8: After the reboot you need to exit the X Server, for that we need to stop LightDM, press Ctrl+Alt+F1 to open up a console screen, log in with your user and password, after that:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo service lightdm stop
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo service lightdm stop
 </code></pre></div></div>
 <p>Step-9: Now install your Nvidia driver:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install nvidia-VERSION
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install nvidia-VERSION
 </code></pre></div></div>
 <p>Note: The value of nvidia-VERSION could be nvidia-410, nvidia-412, nvidia-418, and so on, but you must be careful in locating correct Nvidia Display Driver. Ignoring this, may result in blank screen upon reboot.</p>
 
 <p>Step-10: Reboot the system.</p>
 
 <p>Step-11: To show which loadable kernel modules are currently loaded, issue the following command:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsmod | grep nvidia
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsmod | grep nvidia
 </code></pre></div></div>
 <p>If there is an output, then the installation of nvidia is successful!</p>
 
 <p>Step-12: Now issue the following command to know which display driver is loaded:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo lshw -c video | grep 'configuration'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo lshw -c video | grep 'configuration'
 </code></pre></div></div>
 <p><em><a href="https://askubuntu.com/questions/1129516/black-screen-at-boot-after-nvidia-driver-installation-on-ubuntu-18-04-2-lts">refer link</a></em></p>
 
 <h4 id="login-loop-error">login loop error:</h4>
 <ul>
-  <li>Using <code class="highlighter-rouge">Ctrl + Alt + F2</code> to login commandline mode</li>
-  <li>Then remove nvidia: <code class="highlighter-rouge">sudo apt remove nvidia*</code></li>
+  <li>Using <code class="language-plaintext highlighter-rouge">Ctrl + Alt + F2</code> to login commandline mode</li>
+  <li>Then remove nvidia: <code class="language-plaintext highlighter-rouge">sudo apt remove nvidia*</code></li>
 </ul>
 
 <h4 id="black-screen-boot-with-cursor">black screen boot with cursor</h4>
-<p><em>Cannot login command line mode by <code class="highlighter-rouge">Ctrl + Alt + Fn</code></em></p>
+<p><em>Cannot login command line mode by <code class="language-plaintext highlighter-rouge">Ctrl + Alt + Fn</code></em></p>
 
 <ul>
   <li>Using live USB ubuntu</li>
@@ -297,7 +299,7 @@ echo "alias lbm-nouveau off" | sudo tee -a /etc/modprobe.d/blacklist-nouveau.con
     <p>First, I had to use my Ubuntu installation CD, and chose “Try Ubuntu”.</p>
   </li>
   <li>Next I logged into a terminal session, and have to remount my system partition (ie: /dev/sda1 is where I installed Ubuntu).
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1     /mnt
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1     /mnt
 sudo mount --bind /dev  /mnt/dev
 sudo mount --bind /proc /mnt/proc
 sudo mount --bind /sys  /mnt/sys
@@ -313,28 +315,28 @@ sudo chroot /mnt
   <li>Remove existing drivers</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get remove nvidia*
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get remove nvidia*
 sudo apt-get purge nvidia*
 </code></pre></div></div>
 <ul>
   <li>Housekeeping
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get clean
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get clean
 sudo apt-get autoclean
 </code></pre></div>    </div>
   </li>
   <li>Handle any errors to due incomplete apt-get operations
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg --configure -a
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg --configure -a
 sudo apt-get update
 sudo apt-get upgrade
 </code></pre></div>    </div>
   </li>
   <li>Remove xorg/X11/XFree86 references to graphics drivers
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/X11/xorg.conf
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/X11/xorg.conf
 sudo apt-get install ubuntu-desktop
 </code></pre></div>    </div>
   </li>
   <li>Clean up and unmount everything
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
 sudo umount /mnt/sys
 sudo umount /mnt/proc
 sudo umount /mnt/dev
@@ -353,14 +355,14 @@ exit
 
 <ol>
   <li>Đưa về launcher mặc định ban đầu
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unity --reset-icons
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unity --reset-icons
 </code></pre></div>    </div>
     <p><a href="http://ubuntuhandbook.org/index.php/2014/04/reset-unity-and-compiz-settings-in-ubuntu-14-04/">Tham khảo</a></p>
   </li>
   <li>Đưa lancher xuống dưới màn hình
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings set com.canonical.Unity.Launcher launcher-position Bottom
 </code></pre></div>    </div>
-    <p>Thay <code class="highlighter-rouge">Bottom</code> bằng <code class="highlighter-rouge">Left</code> nếu muốn đưa về cạnh trái</p>
+    <p>Thay <code class="language-plaintext highlighter-rouge">Bottom</code> bằng <code class="language-plaintext highlighter-rouge">Left</code> nếu muốn đưa về cạnh trái</p>
   </li>
 </ol>
 
@@ -371,8 +373,8 @@ exit
     <p>Sử dụng nhiều card mạng trên cùng 1 máy tính
 Mình sử dụng 2 card mạng: 1 để thông với internet bên ngoài, 1 để kết nối với mạch zcu.<br />
 Đặt ip tĩnh cho 2 mạng với 2 defaul gateway khác nhau.<br />
-Dùng <code class="highlighter-rouge">ip route</code> để xem bảng route. Máy sẽ ưu tiên chọn route nào có <code class="highlighter-rouge">metric</code> nhỏ hơn trước. Ví dụ mình muốn ưu tiên gateway để thông lên internet thì dùng lệnh <code class="highlighter-rouge">sudo ifmetric enx00ea4c6d0753 200</code> để thiết lập metric cho card mạng enx00ea4c6d0753 thành 200.<br />
-Một số lệnh: <code class="highlighter-rouge">ip route</code>, <code class="highlighter-rouge">traceroute 8.8.8.8</code> …<br />
+Dùng <code class="language-plaintext highlighter-rouge">ip route</code> để xem bảng route. Máy sẽ ưu tiên chọn route nào có <code class="language-plaintext highlighter-rouge">metric</code> nhỏ hơn trước. Ví dụ mình muốn ưu tiên gateway để thông lên internet thì dùng lệnh <code class="language-plaintext highlighter-rouge">sudo ifmetric enx00ea4c6d0753 200</code> để thiết lập metric cho card mạng enx00ea4c6d0753 thành 200.<br />
+Một số lệnh: <code class="language-plaintext highlighter-rouge">ip route</code>, <code class="language-plaintext highlighter-rouge">traceroute 8.8.8.8</code> …<br />
 Tham khảo:
  https://superuser.com/questions/331720/how-do-i-set-the-priority-of-network-connections-in-ubuntu</p>
   </li>
@@ -383,21 +385,21 @@ Tham khảo:
     <ul>
       <li>Cài ssh server:
         <ul>
-          <li><code class="highlighter-rouge">apt-get install openssh-server</code></li>
-          <li><code class="highlighter-rouge">systemctl enable ssh</code></li>
-          <li><code class="highlighter-rouge">systemctl start ssh</code></li>
+          <li><code class="language-plaintext highlighter-rouge">apt-get install openssh-server</code></li>
+          <li><code class="language-plaintext highlighter-rouge">systemctl enable ssh</code></li>
+          <li><code class="language-plaintext highlighter-rouge">systemctl start ssh</code></li>
           <li><a href="https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/">link tham khao</a></li>
         </ul>
       </li>
       <li>Đổi port ssh server:
         <ul>
-          <li><code class="highlighter-rouge">sudo nano /etc/ssh/sshd_config</code></li>
-          <li>Tìm kiếm dòng <code class="highlighter-rouge">port 22</code>, đổi port số 22 thành số khác (2247)</li>
+          <li><code class="language-plaintext highlighter-rouge">sudo nano /etc/ssh/sshd_config</code></li>
+          <li>Tìm kiếm dòng <code class="language-plaintext highlighter-rouge">port 22</code>, đổi port số 22 thành số khác (2247)</li>
         </ul>
       </li>
       <li>allow firewall:
         <ul>
-          <li><code class="highlighter-rouge">sudo ufw allow 22/tcp</code></li>
+          <li><code class="language-plaintext highlighter-rouge">sudo ufw allow 22/tcp</code></li>
         </ul>
       </li>
       <li>setup ip tĩnh</li>
@@ -415,7 +417,7 @@ Tham khảo:
 <ul>
   <li>Lỗi “log in loop ubuntu” (boot đến đoạn log in, sau khi log in thì bị màn hình đen rồi sau đó lại trở về màn hình login)
     <ul>
-      <li><code class="highlighter-rouge">Ctrl + Alt + F1</code>, sau đó login vào….
+      <li><code class="language-plaintext highlighter-rouge">Ctrl + Alt + F1</code>, sau đó login vào….
         <h3 id="lỗi-network-driver-sau-khi-cài-ubuntu-trên-máy-bàn">Lỗi network driver sau khi cài ubuntu trên máy bàn</h3>
         <p>Download driver here:
 https://downloadcenter.intel.com/dow…?product=71307</p>
@@ -429,7 +431,7 @@ https://downloadcenter.intel.com/dow…?product=71307</p>
 <p>Edit nvm.c, function e1000e_validate_nvm_checksum_generic (line 563) to (thêm cặp /<em>…</em>/):</p>
 
 <p>Code:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s32 e1000e_validate_nvm_checksum_generic(struct e1000_hw *hw)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s32 e1000e_validate_nvm_checksum_generic(struct e1000_hw *hw)
 {
     /*
     s32 ret_val;
@@ -460,7 +462,7 @@ https://downloadcenter.intel.com/dow…?product=71307</p>
 
 <p>Build &amp; install
 Code:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make
 
 
 sudo rmmod e1000e
@@ -500,20 +502,20 @@ http://ubuntuhandbook.org/index.php/2019/01/get-2x2-grid-workspaces-ubuntu-18-04
   <li>Shutdown/reboot:
     <ul>
       <li>ubuntu 18.04.03 không tắt/restart được sau khi cài Nvidia driver.
-reboot bằng: <code class="highlighter-rouge">sudo reboot -f</code></li>
+reboot bằng: <code class="language-plaintext highlighter-rouge">sudo reboot -f</code></li>
     </ul>
   </li>
   <li>Không thể tạo, xóa, sửa trong ổ cứng khác:
-<code class="highlighter-rouge">sudo mount -o remount,rw /dev/sda1</code></li>
+<code class="language-plaintext highlighter-rouge">sudo mount -o remount,rw /dev/sda1</code></li>
 </ol>
 
 <h2 id="command-line">Command line</h2>
 <ul>
-  <li><code class="highlighter-rouge">top -d 1</code>: resourse monitor</li>
+  <li><code class="language-plaintext highlighter-rouge">top -d 1</code>: resourse monitor</li>
 </ul>
 
 <h2 id="install-kodi">install Kodi:</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install software-properties-common
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:team-xbmc/ppa
 sudo apt-get update
 sudo apt-get install kodi
@@ -528,16 +530,16 @@ link iptv: https://vntvbox.com/list-tv-dung-cho-iptv-cap-nhat-lien-tuc-id3454.ht
 <p>Tạo file .desktop để chạy chtrinh cần giao diện.</p>
 
 <h2 id="reset-ubuntu-display">Reset Ubuntu display</h2>
-<p><code class="highlighter-rouge">dconf reset -f /</code>
+<p><code class="language-plaintext highlighter-rouge">dconf reset -f /</code>
 Logout -&gt; Log in</p>
 
 <p>Nếu không được thì tham khảo thêm <a href="https://askubuntu.com/questions/362135/how-to-re-enable-tray-icons-for-applications-in-ubuntu/370654#370654">tại đây</a></p>
 
 <h2 id="find-search-in-command-line">Find, Search in command line</h2>
 <ul>
-  <li>Find file name: <code class="highlighter-rouge">find path/to/folder -name "file"</code></li>
+  <li>Find file name: <code class="language-plaintext highlighter-rouge">find path/to/folder -name "file"</code></li>
   <li>Search file include text: 
-<code class="highlighter-rouge">grep -rnw path/to/folder -e 'text'</code></li>
+<code class="language-plaintext highlighter-rouge">grep -rnw path/to/folder -e 'text'</code></li>
 </ul>
 
       </article>
@@ -586,19 +588,35 @@ Logout -&gt; Log in</p>
         </li>
         
         
+        <li class="next">
+          <a href="/2020-03-13-hd-cai-dat-ros-raspi/" data-toggle="tooltip" data-placement="top" title="Hướng dẫn cài đặt ROS trên Raspberry Pi">Next Post &rarr;</a>
+        </li>
+        
       </ul>
 
       
         <div class="disqus-comments">
           
         </div>
-          
+          <div class="comments">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=231375494570059&autoLogAppEvents=1';
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-comments" data-href="http://localhost:4000/2020-03-01-ubuntu_handbook/" data-width="100%" data-numposts="5"></div>
+    <noscript>Please enable JavaScript to view the comments powered by Facebook.</noscript>
+</div>
         <div class="staticman-comments">
           
 
         </div>
         <div class="justcomments-comments">
-          
+          <div class="just-comments" data-apikey="ABCD-EFGH-IJKL"></div>
+<script async src="https://just-comments.com/w2.js"></script>
         </div>
       
     </div>
@@ -622,7 +640,7 @@ Logout -&gt; Log in</p>
                 </span>
                 <span class="sr-only">Email me</span>
               </a>
-            </li><li><a href="https://www.facebook.com/huyhust13" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+            </li><li><a href="https://www.facebook.com/huy.nguyenv18495" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                 </span>

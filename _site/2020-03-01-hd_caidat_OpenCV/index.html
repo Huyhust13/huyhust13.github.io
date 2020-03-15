@@ -12,7 +12,7 @@
 
   
 
-  <link rel="alternate" type="application/rss+xml" title="Huy's blog - A virtual proof that I'm awesome" href="http://localhost:4000/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Huy's blog - Mechatronics blogs" href="http://localhost:4000/feed.xml" />
 
   
 
@@ -55,6 +55,8 @@
   
 
     <!-- Facebook OpenGraph tags -->
+  
+  <meta property="fb:app_id" content="231375494570059" />
   
 
   
@@ -191,7 +193,7 @@ Kiểm tra xem trong máy tính của bạn đã cài đặt opencv ở đâu ch
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$&gt;</span> <span class="nb">sudo </span>find / <span class="nt">-name</span> <span class="s2">"*opencv*"</span>
 </code></pre></div></div>
 <p>Nếu tồn tại nhiều vị trí cài đặt opencv trong máy mà chỗ nào bạn biết không sử dụng thì có thể sử dụng lệnh sau để xóa bỏ:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$&gt;</span> <span class="nb">sudo </span>find / <span class="nt">-name</span> <span class="s2">"*opencv*"</span> <span class="nt">-exec</span> rm <span class="nt">-i</span> <span class="o">{}</span> <span class="se">\;</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$&gt;</span> <span class="nb">sudo </span>find / <span class="nt">-name</span> <span class="s2">"*opencv*"</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-i</span> <span class="o">{}</span> <span class="se">\;</span>
 </code></pre></div></div>
 <p>Trong đó, dấu ‘/’ là tìm trong toàn bộ thư mục gốc computer, bạn có thể thay đổi folder để giới hạn tìm. Câu lệnh trên chỉ xóa được các file, muốn xóa folder thì thay ‘-i’ bằng ‘-r’ để xóa các folder.</p>
 
@@ -203,15 +205,15 @@ Kiểm tra xem trong máy tính của bạn đã cài đặt opencv ở đâu ch
 <span class="nv">cvVersion</span><span class="o">=</span><span class="s2">"3.4.4"</span>
 
 <span class="c"># Clean build directories</span>
-rm <span class="nt">-rf</span> opencv/build
-rm <span class="nt">-rf</span> opencv_contrib/build
+<span class="nb">rm</span> <span class="nt">-rf</span> opencv/build
+<span class="nb">rm</span> <span class="nt">-rf</span> opencv_contrib/build
 
 <span class="c"># Create directory for installation</span>
-mkdir installation
-mkdir installation/OpenCV-<span class="s2">"</span><span class="nv">$cvVersion</span><span class="s2">"</span>
+<span class="nb">mkdir </span>installation
+<span class="nb">mkdir </span>installation/OpenCV-<span class="s2">"</span><span class="nv">$cvVersion</span><span class="s2">"</span>
 
 <span class="c"># Save current working directory</span>
-<span class="nv">cwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+<span class="nv">cwd</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>
 
 <span class="nb">sudo </span>apt <span class="nt">-y</span> update
 <span class="nb">sudo </span>apt <span class="nt">-y</span> upgrade
@@ -219,37 +221,37 @@ mkdir installation/OpenCV-<span class="s2">"</span><span class="nv">$cvVersion</
 <span class="nb">sudo </span>apt <span class="nt">-y</span> remove x264 libx264-dev
  
 <span class="c">## Install dependencies</span>
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install build-essential checkinstall cmake pkg-config yasm
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install git gfortran
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libjpeg8-dev libjasper-dev libpng12-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>build-essential checkinstall cmake pkg-config yasm
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>git gfortran
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libjpeg8-dev libjasper-dev libpng12-dev
  
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libtiff5-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libtiff5-dev
  
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libtiff-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libtiff-dev
  
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libxine2-dev libv4l-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libxine2-dev libv4l-dev
 <span class="nb">cd</span> /usr/include/linux
-<span class="nb">sudo </span>ln <span class="nt">-s</span> <span class="nt">-f</span> ../libv4l1-videodev.h videodev.h
+<span class="nb">sudo ln</span> <span class="nt">-s</span> <span class="nt">-f</span> ../libv4l1-videodev.h videodev.h
 <span class="nb">cd</span> <span class="nv">$cwd</span>
  
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libgtk2.0-dev libtbb-dev qt5-default
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libatlas-base-dev
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libfaac-dev libmp3lame-dev libtheora-dev
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libvorbis-dev libxvidcore-dev
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libopencore-amrnb-dev libopencore-amrwb-dev
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libavresample-dev
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install x264 v4l-utils
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libgtk2.0-dev libtbb-dev qt5-default
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libatlas-base-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libfaac-dev libmp3lame-dev libtheora-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libvorbis-dev libxvidcore-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libopencore-amrnb-dev libopencore-amrwb-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libavresample-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>x264 v4l-utils
  
 <span class="c"># Optional dependencies</span>
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libprotobuf-dev protobuf-compiler
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libgoogle-glog-dev libgflags-dev
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libprotobuf-dev protobuf-compiler
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libgoogle-glog-dev libgflags-dev
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
 
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install python3-dev python3-pip python3-venv
-<span class="nb">sudo</span> <span class="nt">-H</span> pip3 install <span class="nt">-U</span> pip numpy
-<span class="nb">sudo </span>apt <span class="nt">-y</span> install python3-testresources
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>python3-dev python3-pip python3-venv
+<span class="nb">sudo</span> <span class="nt">-H</span> pip3 <span class="nb">install</span> <span class="nt">-U</span> pip numpy
+<span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>python3-testresources
 
 <span class="nb">cd</span> <span class="nv">$cwd</span>
 <span class="c">############ For Python 3 ############</span>
@@ -260,7 +262,7 @@ python3 <span class="nt">-m</span> venv OpenCV-<span class="s2">"</span><span cl
 <span class="nb">source</span> <span class="s2">"</span><span class="nv">$cwd</span><span class="s2">"</span>/OpenCV-<span class="s2">"</span><span class="nv">$cvVersion</span><span class="s2">"</span><span class="nt">-py3</span>/bin/activate
  
 <span class="c"># now install python libraries within this virtual environment</span>
-pip install wheel numpy scipy matplotlib scikit-image scikit-learn ipython dlib
+pip <span class="nb">install </span>wheel numpy scipy matplotlib scikit-image scikit-learn ipython dlib
   
 <span class="c"># quit virtual environment</span>
 deactivate
@@ -277,7 +279,7 @@ git checkout <span class="nv">$cvVersion</span>
 <span class="nb">cd</span> ..
 
 <span class="nb">cd </span>opencv
-mkdir build
+<span class="nb">mkdir </span>build
 <span class="nb">cd </span>build
 
 cmake <span class="nt">-D</span> <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE <span class="se">\</span>
@@ -293,17 +295,17 @@ cmake <span class="nt">-D</span> <span class="nv">CMAKE_BUILD_TYPE</span><span c
         <span class="nt">-D</span> <span class="nv">BUILD_EXAMPLES</span><span class="o">=</span>ON ..
 
 make <span class="nt">-j4</span>
-make install
+make <span class="nb">install
 
-<span class="nb">echo</span> <span class="s2">"Installation Completed!"</span>
+echo</span> <span class="s2">"Installation Completed!"</span>
 </code></pre></div></div>
 <p>Copy file install_opencv.sh tới thư mục chứa các file cài đặt mà bạn muốn đặt vào. (Theo mình thì nên tạo 1 folder /home/OpenCV) Bởi vì sau khi cài đặt nó sẽ tạo ra 1 số folder tại cùng mức với vị trí để file install_opencv.sh như /installation, /opencv, /OpenCV-<version_number>-py3, /opencv_contrib.</version_number></p>
 
 <p>Cấp quyền thực thi cho file cài đặt:
 Terminal và dẫn vào folder chứa file cài đặt
-<code class="highlighter-rouge">sudo chmod +x install_opencv.sh</code> 
+<code class="language-plaintext highlighter-rouge">sudo chmod +x install_opencv.sh</code> 
 Chạy file cài đặt:
-<code class="highlighter-rouge">sudo ./install_opencv.sh</code>
+<code class="language-plaintext highlighter-rouge">sudo ./install_opencv.sh</code>
 &lt;đợi cho quá trình cài đặt kết thúc. Trong quá trình cài đặt đôi chỗ sẽ hỏi có cài hay không (Y/N)?&gt;</p>
 
 <p>Sau khi bạn cài đặt xong, thư viện cài đặt trong /installation/OpenCV-&lt;cvVersion&gt;/</p>
@@ -436,9 +438,9 @@ int main(int argc, char** argv )
 <p>Quan sát kĩ ở console sau khi thực hiện lệnh cmake ..  ta thấy có dòng</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--</span> Found OpenCV: /opt/ros/kinetic <span class="o">(</span>found version <span class="s2">"3.3.1"</span><span class="o">)</span>
 </code></pre></div></div>
-<p>Tức là chương trình này đang link tới thư viện opencv được cài đặt trong <code class="highlighter-rouge">/opt/ros/kinetic</code>, phiên bản OpenCV 3.3.1. Nó khác với thư viện cài đặt mà mình đã hướng dẫn ở phía trên. 
+<p>Tức là chương trình này đang link tới thư viện opencv được cài đặt trong <code class="language-plaintext highlighter-rouge">/opt/ros/kinetic</code>, phiên bản OpenCV 3.3.1. Nó khác với thư viện cài đặt mà mình đã hướng dẫn ở phía trên. 
 Vậy, muốn chỉ định cho chương trình hiểu được vị trí của thư viện OpenCV mình vừa cài đặt ở trên (hoặc bất kì vị trí thư viện OpenCV nào trên máy của mình) chúng ta phải làm như thế nào???
-Sau khi search rất nhiều trên mạng và thử nhiều cách thì đây là cách có hiệu quả với mình: Thêm dòng lệnh sau vào trước dòng <code class="highlighter-rouge">find_package(OpenCV REQUIRED)</code></p>
+Sau khi search rất nhiều trên mạng và thử nhiều cách thì đây là cách có hiệu quả với mình: Thêm dòng lệnh sau vào trước dòng <code class="language-plaintext highlighter-rouge">find_package(OpenCV REQUIRED)</code></p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set</span><span class="o">(</span>CMAKE_PREFIX_PATH /home/huynv/installation/OpenCV-3.4.4/share/OpenCV<span class="o">)</span>
 </code></pre></div></div>
 <p>Hoặc có thể thay biến <strong>CMAKE_PREFIX_PATH</strong> thành biến <strong>OpenCV_DIR</strong>. Đường dẫn phía sau là đường dẫn tới thư mục cài đặt chứa file <em>OpenCVConfig.cmake</em>. Tuy nhiên, theo mình nên sử dụng biến <strong>OpenCV_DIR</strong> hơn bởi vì trong một số dự án lớn mình sẽ phải dùng nhiều gói khác nhau. Câu lệnh trên với biến <strong>OpenCV_DIR</strong> chỉ khai báo môi trường cho OpenCV, còn các thư viện khác sẽ không bị ảnh hưởng.
@@ -446,18 +448,18 @@ Xóa sạch toàn bộ file và folder trong thư mục /build. Chạy lại cá
 (Đây là cách có hiệu quả với mình nhưng mình chưa hiểu rõ ý nghĩa của các biến môi trường trong CMake, mong các bạn góp ý  :blush: )</p>
 
 <h2 id="lỗi-opencv-với-libgstreamer">Lỗi opencv với libgstreamer</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
 //usr/lib/x86_64-linux-gnu/libgstreamer-0.10.so.0: undefined reference to `xmlOutputBufferCreateFile@LIBXML2_2.4.30'
 ...
 </code></pre></div></div>
 <p>Lỗi này do thư viện gstreamer</p>
 
 <p>Khắc phục:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install gstreamer1.0*
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install gstreamer1.0*
 </code></pre></div></div>
 <p>trong qúa trình cài gstreamer1.0* có thể có lỗi do thiếu thư viện, lỗi báo thiếu thư viện nào thì cài thư viện đó</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libandroid-properties1:i386 libmedia1:i386
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libandroid-properties1:i386 libmedia1:i386
 </code></pre></div></div>
 
 <p>–&gt; Vẫn chưa fix được lỗi đó</p>
@@ -465,7 +467,7 @@ Xóa sạch toàn bộ file và folder trong thư mục /build. Chạy lại cá
 <p><strong>Nguyên nhân chính:</strong> Do không link được tới thư viện LibXml2</p>
 
 <p>Khắc phục: Thêm vào CMakeLists.txt hai dòng:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
 find_package(LibXml2 REQUIRED)
 ...
 include_directories(...${LIBXML2_INCLUDE_DIR})
@@ -536,13 +538,25 @@ TARGET_LINK_LIBRARIES(${name} ... ${LIBXML2_LIBRARIES})
         <div class="disqus-comments">
           
         </div>
-          
+          <div class="comments">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=231375494570059&autoLogAppEvents=1';
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-comments" data-href="http://localhost:4000/2020-03-01-hd_caidat_OpenCV/" data-width="100%" data-numposts="5"></div>
+    <noscript>Please enable JavaScript to view the comments powered by Facebook.</noscript>
+</div>
         <div class="staticman-comments">
           
 
         </div>
         <div class="justcomments-comments">
-          
+          <div class="just-comments" data-apikey="ABCD-EFGH-IJKL"></div>
+<script async src="https://just-comments.com/w2.js"></script>
         </div>
       
     </div>
@@ -566,7 +580,7 @@ TARGET_LINK_LIBRARIES(${name} ... ${LIBXML2_LIBRARIES})
                 </span>
                 <span class="sr-only">Email me</span>
               </a>
-            </li><li><a href="https://www.facebook.com/huyhust13" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+            </li><li><a href="https://www.facebook.com/huy.nguyenv18495" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                 </span>

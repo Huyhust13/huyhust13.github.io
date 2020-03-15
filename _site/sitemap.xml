@@ -2,15 +2,19 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost:4000/2020-03-01-hd-caidat-xmind8/</loc>
-<lastmod>2020-03-01T00:00:00-08:00</lastmod>
+<lastmod>2020-03-01T00:00:00+07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2020-03-01-hd_caidat_OpenCV/</loc>
-<lastmod>2020-03-01T00:00:00-08:00</lastmod>
+<lastmod>2020-03-01T00:00:00+07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2020-03-01-ubuntu_handbook/</loc>
-<lastmod>2020-03-01T00:00:00-08:00</lastmod>
+<lastmod>2020-03-01T00:00:00+07:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2020-03-13-hd-cai-dat-ros-raspi/</loc>
+<lastmod>2020-03-13T00:00:00+07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/aboutme/</loc>

@@ -12,7 +12,7 @@
 
   
 
-  <link rel="alternate" type="application/rss+xml" title="Huy's blog - A virtual proof that I'm awesome" href="http://localhost:4000/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Huy's blog - Mechatronics blogs" href="http://localhost:4000/feed.xml" />
 
   
 
@@ -55,6 +55,8 @@
   
 
     <!-- Facebook OpenGraph tags -->
+  
+  <meta property="fb:app_id" content="231375494570059" />
   
 
   
@@ -193,30 +195,30 @@ Các bạn lưu ý chọn phiên bản java8 (Vì mình cài bản 12 thì khôn
   <li>Download<br />
 Các bạn vào <a href="https://www.xmind.net/download/xmind8">link này</a> để down bản xmind 8 dùng cho ubuntu về (đây là file .zip).</li>
   <li>Giải Nén
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip &lt;ten_file_xmind&gt;.zip -d xmind
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip &lt;ten_file_xmind&gt;.zip -d xmind
 </code></pre></div>    </div>
   </li>
   <li>Move thư mục xmind tới /opt/
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv xmind /opt/
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv xmind /opt/
 </code></pre></div>    </div>
   </li>
   <li>Cấp quyền ghi cho thư mục configuration
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod a+x /opt/xind/XMind\_amd64/configuration
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod a+x /opt/xind/XMind\_amd64/configuration
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Sửa file config /opt/xmind/XMind_amd64/XMind.ini</p>
 
-    <p>Dòng thứ 2: <code class="highlighter-rouge">Sửa ./configuration</code> thành <code class="highlighter-rouge">/opt/xmind/XMind_amd64/configuration</code> 
- Tạo thư mục <code class="highlighter-rouge">workspace/</code> trong <code class="highlighter-rouge">/opt/xmind/</code> và cấp quyền ghi cho nó
- Dòng thứ 4: sửa ../workspace thành <code class="highlighter-rouge">/opt/xmind/workspace</code>
- Dòng 6 &amp; 8: Sửa ../plugins thành <code class="highlighter-rouge">/opt/xmind/plugins</code></p>
+    <p>Dòng thứ 2: <code class="language-plaintext highlighter-rouge">Sửa ./configuration</code> thành <code class="language-plaintext highlighter-rouge">/opt/xmind/XMind_amd64/configuration</code> 
+ Tạo thư mục <code class="language-plaintext highlighter-rouge">workspace/</code> trong <code class="language-plaintext highlighter-rouge">/opt/xmind/</code> và cấp quyền ghi cho nó
+ Dòng thứ 4: sửa ../workspace thành <code class="language-plaintext highlighter-rouge">/opt/xmind/workspace</code>
+ Dòng 6 &amp; 8: Sửa ../plugins thành <code class="language-plaintext highlighter-rouge">/opt/xmind/plugins</code></p>
   </li>
   <li>Tạo file xmind.desktop
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /usr/share/applications/xmind.desktop
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /usr/share/applications/xmind.desktop
 </code></pre></div>    </div>
     <p>Paste nội dung như sau:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Desktop Entry]
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Desktop Entry]
 Comment=Create and share mind maps
 Exec=/opt/xmind/XMind_amd64/XMind  %F
 Name=XMind
@@ -225,12 +227,12 @@ Type=Application
 Categories=Office
 Icon=/opt/xmind/xmind.jpg
 </code></pre></div>    </div>
-    <p><em>Trước đó, bạn hãy lên gg search lấy 1 icon xmind <a href="https://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;ved=2ahUKEwib_fmzjd7iAhWXdHAKHc37B80QjRx6BAgBEAU&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FXMind&amp;psig=AOvVaw18eiz7bYiUkYeCGQYO1zog&amp;ust=1560228277091650">có thể dùng ảnh này</a>, lưu về trong thư mục <code class="highlighter-rouge">/opt/xmind/</code> hoặc bất kì đâu rồi dẫn link tới trong lệnh <code class="highlighter-rouge">Icon=...</code></em>.</p>
+    <p><em>Trước đó, bạn hãy lên gg search lấy 1 icon xmind <a href="https://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;ved=2ahUKEwib_fmzjd7iAhWXdHAKHc37B80QjRx6BAgBEAU&amp;url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FXMind&amp;psig=AOvVaw18eiz7bYiUkYeCGQYO1zog&amp;ust=1560228277091650">có thể dùng ảnh này</a>, lưu về trong thư mục <code class="language-plaintext highlighter-rouge">/opt/xmind/</code> hoặc bất kì đâu rồi dẫn link tới trong lệnh <code class="language-plaintext highlighter-rouge">Icon=...</code></em>.</p>
   </li>
 </ol>
 
 <p>Cấp quyền thực thi cho file xmind.desktop</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod +x /usr/share/applications/xmind.desktop
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chmod +x /usr/share/applications/xmind.desktop
 </code></pre></div></div>
 
 <p>Kiểm tra cài đặt thành công hay không, các bạn vào launcher, tìm đến xmind và bật nó lên…</p>
@@ -290,13 +292,25 @@ Done!</p>
         <div class="disqus-comments">
           
         </div>
-          
+          <div class="comments">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=231375494570059&autoLogAppEvents=1';
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-comments" data-href="http://localhost:4000/2020-03-01-hd-caidat-xmind8/" data-width="100%" data-numposts="5"></div>
+    <noscript>Please enable JavaScript to view the comments powered by Facebook.</noscript>
+</div>
         <div class="staticman-comments">
           
 
         </div>
         <div class="justcomments-comments">
-          
+          <div class="just-comments" data-apikey="ABCD-EFGH-IJKL"></div>
+<script async src="https://just-comments.com/w2.js"></script>
         </div>
       
     </div>
@@ -320,7 +334,7 @@ Done!</p>
                 </span>
                 <span class="sr-only">Email me</span>
               </a>
-            </li><li><a href="https://www.facebook.com/huyhust13" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+            </li><li><a href="https://www.facebook.com/huy.nguyenv18495" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                 </span>
