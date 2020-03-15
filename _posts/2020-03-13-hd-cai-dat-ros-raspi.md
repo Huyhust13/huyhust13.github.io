@@ -5,7 +5,6 @@ comment: true
 categories: [blog, ROS]
 tags: [ros, raspberry]
 ---
-[writing...]
 
 <!-- TOC -->
 
@@ -23,7 +22,6 @@ tags: [ros, raspberry]
         - [Cấu hình repositorys:](#cấu-hình-repositorys)
     - [Một số lưu ý](#một-số-lưu-ý)
     - [Cấu hình boot:](#cấu-hình-boot)
-- [Cài đặt dashgo](#cài-đặt-dashgo)
 - [Tham khảo](#tham-khảo)
 
 <!-- /TOC -->
@@ -152,12 +150,6 @@ echo “source ~/catkin_ws/devel/setup.bash” >> ~/.bashrc
 export | grep ROS
 ```
 
-
-
-
- 
-
-
 ### Một số lưu ý
 - Nếu trong qúa trình `catkin_make`, xảy ra lỗi `c++: internal compiler error: Killed (program cc1plus)` thì thực hiện lại lệnh `catkin_make -j2`
 
@@ -183,11 +175,6 @@ hdmi_mode = 16 (chọn theo cấu hình màn hình)
 ```
 Mình thấy khi chọn thông số  `hdmi_mode` không phù hợp thì pi không khởi động được.
 
-## Cài đặt dashgo
-
-
-
 ## Tham khảo
 1. https://roboticsbackend.com/install-ros-on-raspberry-pi-3/
 2. https://www.intorobotics.com/installing-ros-melodic-on-raspberry-pi-3b-running-ubuntu-mate-18-04-2-bionic/
-3. 
