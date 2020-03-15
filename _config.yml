@@ -108,7 +108,7 @@ google_analytics: "UA-159429694-1"
 disqus: "huyhust"
 
 # If you want to use JustComments fill with the API Key
-just-comments: "ABCD-EFGH-IJKL"
+#just-comments: "ABCD-EFGH-IJKL"
 
 # To use Facebook Comments, fill in a Facebook App ID
 fb_comment_id: "231375494570059"
