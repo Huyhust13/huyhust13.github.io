@@ -4,7 +4,7 @@
 title: Huy's blog
 
 # Short description of your site
-description: A virtual proof that I'm awesome
+description: Mechatronics blogs
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -53,7 +53,7 @@ footer-link-col: "#404040"
 
 # navbar-img: "/img/bgimage.png"
 # footer-img: "/img/bgimage.png"
-# page-img: "/img/bgimage.png"
+# page-img: "/img/path.jpg"
 
 # --- Footer options --- #
 
@@ -69,20 +69,8 @@ author:
 social-network-links:
   rss: true
   email: "huyhust13@gmail.com"
-  facebook: fb.com/huy.nguyenv18495
+  facebook: huy.nguyenv18495
   github: huyhust13
-#  reddit: yourname
-#  linkedin: daattali
-#  xing: yourname
-#  stackoverflow: "3943160/daattali"
-#  snapchat: deanat78
-#  instagram: deanat78
-#  youtube: user/deanat78
-#  spotify: yourname
-#  telephone: +14159998888
-#  steam: deanat78
-#  twitch: yourname
-#  yelp: yourname
 
 # Select which share links to show in posts
 share-links-active:
@@ -126,15 +114,15 @@ just-comments: "ABCD-EFGH-IJKL"
 fb_comment_id: "231375494570059"
 
 # To use Staticman comments, fill in repository, branch, and endpoint
-staticman:
-  repository : # GitHub username/repository eg. "daattali/beautiful-jekyll"
-  branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
-  endpoint   : # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
-  reCaptcha:
-    # reCaptcha for Staticman (OPTIONAL, but recommended for spam protection)
-    # If you use reCaptcha, you must also set these parameters in staticman.yml
-    siteKey  : # Use your own site key, you need to apply for one on Google
-    secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
+# staticman:
+#   repository : # GitHub username/repository eg. "daattali/beautiful-jekyll"
+#   branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
+#   endpoint   : # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
+#   reCaptcha:
+#     # reCaptcha for Staticman (OPTIONAL, but recommended for spam protection)
+#     # If you use reCaptcha, you must also set these parameters in staticman.yml
+#     siteKey  : # Use your own site key, you need to apply for one on Google
+#     secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
 
 # --- Misc --- #
 
