@@ -1,4 +1,4 @@
-baseURL: https://example.org/
+baseURL: https://huyhust13.github.io/
 languageCode: en-us
 title: My New Hugo Site
 
@@ -10,8 +10,8 @@ author:
   name: "Huy Nguyen Van"
   location: "Hanoi, Vietnam"
   phone: "0972973146"
-  
-menu: 
+
+menu:
   main:
     - identifier: about
       name: About
