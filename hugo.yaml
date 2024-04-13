@@ -1,3 +1,40 @@
 baseURL: https://example.org/
 languageCode: en-us
 title: My New Hugo Site
+
+theme: Eclectic
+
+author:
+  facebook: "https://www.facebook.com/huy.nguyenv18495/"
+  email: "huyhust13@gmail.com"
+  name: "Huy Nguyen Van"
+  location: "Hanoi, Vietnam"
+  phone: "0972973146"
+  
+menu: 
+  main:
+    - identifier: about
+      name: About
+      url: /about
+      weight: 100
+    - identifier: contact
+      name: Contact
+      url: /contact
+      weight: 200
+params:
+  color: "#4f46e5"
+  copyright: "Copyright &copy; 2024 HuyNV.
+      All Rights Reserved"
+  footer:
+    - title: About
+      content:  >
+          I am a Robotics Engineer. Robot in my heart.
+
+
+    - title: Recent Blog Posts
+      recents: blog
+      recentCount: 4
+    - title: Contact me
+      contact: true
+
+
