@@ -1,4 +1,6 @@
-baseURL = "/"
+## baseURL = "https://huyhust13.github.io/"
+relativeURLs = true
+uglyURLs = false
 theme = "hugo-whisper-theme"
 languageCode = "en-us"
 title = "HBot"
