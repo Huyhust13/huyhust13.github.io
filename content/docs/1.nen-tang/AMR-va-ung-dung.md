@@ -13,7 +13,8 @@ AMR được trang bị nhiều loại cảm biến phức tạp, công nghệ m
 
 AMR là một lĩnh vực khá non trẻ, tuy nhiên có rất nhiều hãng AMR trên Thế giới hiện nay. Có thể kể đến một vài hãng nổi tiếng như [MIR](https://mobile-industrial-robots.com/), [SEER Group](https://www.seer-group.com/)...
 
-<!-- ![MIR 250](/images/MiR250.png) -->
-![MIR 250](./resources/MiR250.png)
+![MIR 250](/images/1.nen-tang/MiR250.png)
 
-Tại Việt Nam,
+Tại Việt Nam, có một số công ty, phòng lab tại trường đại học bắt đầu tiếp cận, nghiên cứu và phát triển AMR nhờ sự phổ biến của nền tảng ROS vào nhũng năm 2017, 2018 như ở Bách Khoa Hà Nội, công ty [Meiko Automation](https://meiko-auto.vn/), [Esatech](https://smartagv.net/) và đặc biệt là Techvico - nơi tôi hiện tại đang làm việc.
+
+Với sự phổ biến của nền tảng ROS, và hiện nay mới nhất là ROS2, chúng ta có thể nhanh chóng triển khai một AMR trong thời gian ngắn, dựa trên các mã nguồn mở
