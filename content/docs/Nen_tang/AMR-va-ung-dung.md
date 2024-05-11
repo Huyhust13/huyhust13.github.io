@@ -13,6 +13,6 @@ AMR được trang bị nhiều loại cảm biến phức tạp, công nghệ m
 
 AMR là một lĩnh vực khá non trẻ, tuy nhiên có rất nhiều hãng AMR trên Thế giới hiện nay. Có thể kể đến một vài hãng nổi tiếng như [MIR](https://mobile-industrial-robots.com/), [SEER Group](https://www.seer-group.com/)...
 
-![MIR 250](resources/MiR250.png)
+![MIR 250](/images/MiR250.png)
 
 Tại Việt Nam,
