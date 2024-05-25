@@ -69,7 +69,7 @@ ROS 2 khác ROS 1 ở một điểm cơ bản đó là trong ROS 2 mặc định
 Node là một thành phần cơ bản nhất trong ROS, mỗi node thường được thiết kế để đảm nhận cho một mục đích. Ví dụ node để điều khiển bánh xe, node đề tính toán odometry... Mỗi node có thể gửi, nhận dữ liệu từ các node khác trong cùng một môi trường ROS thông qua `topic`, `service`, `action` hay `parameter`.
 Hình dưới đây mô tả đơn giản cách cách node giao tiếp với nhau.
 
-![NodesTopicAndService.gif](images/1.nen-tang/Nodes-TopicandService.gif)
+![NodesTopicAndService.gif](/images/1.nen-tang/Nodes-TopicandService.gif)
 
 Một hệ thống robotics hoàn chỉnh chứa nhiều hoặc rất nhiều node hoạt động cho cùng một mục tiêu. Trong ROS2, mỗi một file thực thi có thể chứa một hoặc nhiều node (Khác với ROS 1).
 
@@ -94,7 +94,7 @@ ros2 node info /<node_name>
 
 `Topic` là thuật ngữ chỉ một loại dữ liệu được truyền từ các `node publisher` tới các `node subscriber`. Một loại topic có thể dùng để truyền dữ liệu giữa nhiều publisher và nhiều subscriber.
 
-![Topic-MultiplePublisherandMultipleSubscriber.gif](images/1.nen-tang/Topic-MultiplePublisherandMultipleSubscriber.gif)
+![Topic-MultiplePublisherandMultipleSubscriber.gif](/images/1.nen-tang/Topic-MultiplePublisherandMultipleSubscriber.gif)
 
 Có thể sử dụng `rqt_graph` để hiển thị các node và các topic giao tiếp giữa các node đó trong một mạng ROS.
 
@@ -146,7 +146,7 @@ ros2 topic pub <tên_topic> <tên_kiểu_message> '<dữ_liệu>'
 
 `Service` là một phương pháp giao tiếp khác giữa các node trong mạng lưới ROS. Các `service` dựa trên mô hình gọi và trả lời. Trong khi `topic` cho phép các node truyền dữ liệu liên tục với nhau, service chỉ cung cấp dữ liệu khi được yêu cầu bởi một client. Hình dưới mô tả cách service hoạt động.
 
-![Service-MultipleServiceClient.gif](images/1.nen-tang/Service-MultipleServiceClient.gif)
+![Service-MultipleServiceClient.gif](/images/1.nen-tang/Service-MultipleServiceClient.gif)
 
 Một số câu lệnh đơn giản để làm việc với service trên terminal:
 
@@ -174,7 +174,7 @@ Action được xây dựng dựa trên topic và service. Cách hoạt động 
 
 Action sử dụng mô hình client-server, tương tự như mô hình publisher-subscriber. Một node `action client` gửi một mục tiêu (goal) tới node `action server`. Sau đó `action server` sau đó `action server` thực hiện nhiệm vụ để đạt được mục tiêu đó, trong quá trình thực hiện nhiệm vụ, nó liên tục cập nhật tình hình cho `action client` bằng cách gửi phản hồi (feedback) liên tục về cho `action client`, và khi đã đạt mục tiêu, nó gửi kết quả (result). Mô tả trực quan như hình dưới.
 
-![Action-SingleActionClient.gif](images/1.nen-tang/Action-SingleActionClient.gif)
+![Action-SingleActionClient.gif](/images/1.nen-tang/Action-SingleActionClient.gif)
 
 Một số lệnh CLI với `action`:
 - `ros2 action list` : Liệt kê danh sách các action trong mạng ROS
