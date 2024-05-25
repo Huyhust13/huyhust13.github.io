@@ -23,9 +23,7 @@ Tương tự như ROS1, ROS2 có các phiên bản khác nhau, tương thích v�
 
 Hướng dẫn cài đặt ROS 2: [Tham khảo tại đây](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
 
-## Hướng dẫn cơ bản
-
-### Cấu hình môi trường
+## Cấu hình môi trường
 
 Trong ROS, chúng ta có thuật ngữ `workspace` dùng để chỉ vị trí thư mục bạn đang phát triển các gói ROS 2. Trong quá trình phát triển ROS 2, bạn có thể sẽ chạy nhiều `workspace` cùng một lúc.
 
@@ -62,35 +60,43 @@ ROS 2 khác ROS 1 ở một điểm cơ bản đó là trong ROS 2 mặc định
 
 Để quản lý được việc đó, chúng ta sử dụng biến môi trường `ROS_DOMAIN_ID`, khi đó các máy có cùng `ROS_DOMAIN_ID` trong cùng một lớp mạng internet mới có thể giao tiếp được với nhau. Hoặc khai báo biến môi trường `ROS_LOCALHOST_ONLY` để giới hạn ROS 2 chỉ có thể giao tiếp trong nội bộ localhost.
 
-### Một số thuật ngữ và khái niệm cơ bản trong ROS 2
+## Một số thuật ngữ và khái niệm cơ bản trong ROS 2
 
-#### Node
+### Node
 
-Node là một thành phần cơ bản nhất trong ROS, mỗi node thường được thiết kế để đảm nhận cho một mục đích. Ví dụ node để điều khiển bánh xe, node đề tính toán odometry... Mỗi node có thể gửi, nhận dữ liệu từ các node khác trong cùng một môi trường ROS thông qua `topic`, `service`, `action` hay `parameter`.
+Node là một thành phần cơ bản nhất trong ROS, sử dụng các thư viện để giao tiếp với các node khác. Node có thể giao tiếp với các node khác trong cùng một tiến trình, hoặc trong tiến trình khác nhau, hoặc trên một máy tính khác. Node thường là một đơn vị tính toán trong ROS, mỗi node nên thực hiện một công việc logic cụ thể.
+
+Node có thể `publish` tới các `topic` để phát đi các bản tin dữ liệu tới các node khác, hoặc `subscribe` vào các `topic` để lấy dữ liệu từ các node khác. Chúng cũng có thể hành động như một `service client` để yêu cầu một node khác thực thi một tính toán nào đó, hay hoạt động như một `service server` cung cấp các hàm để thực thi một chức năng cho các node khác. Để phục vụ các nhiệm vụ cần nhiều thời gian hơn, một node có thể hành động như một `action server` để cung cấp một hàm chức năng cho các node khác. Node có thể cung cấp các `parameter` có thể cấu hình để thay đổi hành vi trong quá trình chạy.
+
 Hình dưới đây mô tả đơn giản cách cách node giao tiếp với nhau.
 
 ![NodesTopicAndService.gif](/images/1.nen-tang/Nodes-TopicandService.gif)
 
-Một hệ thống robotics hoàn chỉnh chứa nhiều hoặc rất nhiều node hoạt động cho cùng một mục tiêu. Trong ROS2, mỗi một file thực thi có thể chứa một hoặc nhiều node (Khác với ROS 1).
+Node thường là một tập hợp phức tạp của các `publisher`, `subscriber`, `service server`, `service client`, `action server` và `action client` tất cả cùng lúc.
+
+Việc các node kết nối với nhau như thế nào sẽ được làm rõ ở phần dưới.
 
 Một số lệnh với `node` như:
 
-- Để chạy một node từ terminal:
-```
-ros2 run <package_name> <executable_name>
-```
+- `ros2 run <package_name> <executable_name>`: Chạy một node
+- `ros2 node list`: Liệt kê các node đang chạy trong mạng ROS
+- `ros2 node info /<node_name>`: Xem các thông tin của node
 
-- Để liệt kê danh sách các node đang chạy:
-```
-ros2 node list
-```
+### Giải thích cách các node kết nối với nhau
+Các node tìm thấy nhau một cách tự động nhờ vào phần trung gian (middleware) của ROS 2.
 
-- Để xem thông tin của node
-```
-ros2 node info /<node_name>
-```
+1. Khi một node bắt đầu, nó thông báo tới các node khác trong cùng mạng lưới ROS (bằng cách thiết lập biến môi trường ROS_DOMAIN_ID). Các node khác trong mạng lưới ROS sẽ phản hồi node đó về thông tin của mình để có thể kết nối, giao tiếp với nhau.
+2. Các nối liên tục phát thông báo về sự hiện diện của chúng để có thể kết nối tới các node khác hoặc các node mới.
+3. Các node sẽ thông báo tới các node khác khi chúng dừng chạy.
 
-#### Topic
+### Interface
+
+ROS sử dụng 3 kiểu giao tiếp: `topic`, `service` và `action`.
+- msg: các file `.msg` là các file văn bản thuần túy mô tả các trường dữ liệu trong bản tin ROS. Chúng được dùng để sinh ra mã nguồn cho kiểu bản tin đó trong nhiều loại ngôn ngữ khác nhau.
+- srv: các file `.srv` mô tả `service`. Chúng được tạo thành từ 2 phần: một phần yêu cầu (request) và một phần phản hồi (response).
+- action: các file `.action` mô tả `action`. Chúng được tạo từ 3 phần: mục tiêu (goal), kết quả (result) và phản hồi (feedback).
+
+### Topic
 
 `Topic` là thuật ngữ chỉ một loại dữ liệu được truyền từ các `node publisher` tới các `node subscriber`. Một loại topic có thể dùng để truyền dữ liệu giữa nhiều publisher và nhiều subscriber.
 
@@ -142,11 +148,25 @@ ros2 topic echo /<tên_topic>
 ros2 topic pub <tên_topic> <tên_kiểu_message> '<dữ_liệu>'
 ```
 
-#### Service
+### Service
 
 `Service` là một phương pháp giao tiếp khác giữa các node trong mạng lưới ROS. Các `service` dựa trên mô hình gọi và trả lời. Trong khi `topic` cho phép các node truyền dữ liệu liên tục với nhau, service chỉ cung cấp dữ liệu khi được yêu cầu bởi một client. Hình dưới mô tả cách service hoạt động.
 
 ![Service-MultipleServiceClient.gif](/images/1.nen-tang/Service-MultipleServiceClient.gif)
+
+Một node có thể thực hiện một nhiệm vụ từ xa, bằng cách gọi tới một node khác, node đó sẽ thực hiện các tính toán cần thiết và sau đó là trả lại kết quả.
+
+Kiến trúc của một bản tin service như sau:
+```
+uint32 request
+---
+uint32 response
+```
+
+Trong ROS 2, các services mong muốn có phản hồi rất nhanh, và client sẽ chờ kết quả. Nếu cần thực hiện các nhiệm vụ mất nhiều thời gian, hãy chuyển sang sử dụng action.
+
+- **Service server** là nơi thực thi nhiệm vụ, nhận một yêu cầu, thực thi và phản hồi kết quả.
+- **Service client** là thực thể gửi yêu cầu tới `service server`, sau đó nhận phản hồi.
 
 Một số câu lệnh đơn giản để làm việc với service trên terminal:
 
@@ -154,7 +174,37 @@ Một số câu lệnh đơn giản để làm việc với service trên termin
 - `ros2 service type <tên_service>`: Xem thông tin kiểu dữ liệu của service đó.
 - `ros2 service call <tên_service> <tên_kiểu_request> '<dữ_liệu>'`: Gửi request đó cho service đó.
 
-#### Parameters
+### Action
+
+Action hướng tới việc thực thi nhiệm vụ từ xa trong một khoảng thời gian dài, có cơ chế phản hồi thường xuyên cũng như có thể hủy cũng như ưu tiên một mục tiêu nào đó. Ví dụ, robot gọi tới một action để bảo bộ phận điều hướng di chuyển robot tới một điểm đích, việc này có thể mất vài giây tới vài phút. Trong quá trình di chuyển, nó liên tục phản hồi về quãng đường đã đi, và phía robot có thể hủy mục tiêu đó.
+
+Kiến trúc bản tin action
+```
+int32 goal
+---
+int32 result
+---
+int32 feedback
+```
+
+
+Action sử dụng mô hình client-server, tương tự như mô hình publisher-subscriber. Một node `action client` gửi một mục tiêu (goal) tới node `action server`. Sau đó `action server` sau đó `action server` thực hiện nhiệm vụ để đạt được mục tiêu đó, trong quá trình thực hiện nhiệm vụ, nó liên tục cập nhật tình hình cho `action client` bằng cách gửi phản hồi (feedback) liên tục về cho `action client`, và khi đã đạt mục tiêu, nó gửi kết quả (result). Mô tả trực quan như hình dưới.
+
+![Action-SingleActionClient.gif](/images/1.nen-tang/Action-SingleActionClient.gif)
+
+- **Action server** là nơi thực thi nhiệm vụ, nhận một yêu cầu, thực thi và phản hồi tiến trình và cuối cùng là kết quả.
+- **Action client** là thực thể gửi yêu cầu tới `action server`, sau đó nhận kết quả và thông tin cập nhật.
+
+
+Một số lệnh CLI với `action`:
+- `ros2 action list` : Liệt kê danh sách các action trong mạng ROS
+- `ros2 action info <tên_action>`: để hiển thị thông tin action đó, bao gồm client, server.
+- `ros2 interface show <tên_kiểu_action>`: Xem chi tiết kiểu dữ liệu action đó
+- `ros2 action send_goal <tên_action> <tên_kiểu_action> '<dữ_liệu>'`: Gửi request cho action.
+
+Tóm lại, action tương tự service, cho phép thực thi một nhiệm vụ trong một thời gian dài hơn, cung cấp cơ chế phản hồi và có thể hủy được trong quá trình thực hiện. Trong điều hướng robot, một action điển hình là gửi một vị trí mục tiêu (goal) để ra lệnh cho robot di chuyển tới điểm mục tiêu, trong quá trình di chuyển robot liên tục cập nhật thông tin về cho `action client` và cuối cùng là bản tin kết quả khi đã đến được mục tiêu.
+
+### Parameters
 
 Một `parameter` là một giá trị cấu hình của một node. Bạn có thể coi các `parameter` là các tham số cấu hình của một node. Một node có thể lưu các `parameter` với các kiểu dữ liệu int, float, boolean, string, list. Trong ROS 2, mỗi node duy trì các prameter của nó.
 
@@ -166,25 +216,13 @@ Một số lệnh CLI với parameter:
 - `ros2 param dump <tên_node> > <tên_file>`: Ghi giá trị các parameter của node ra file.
 ...
 
-#### Action
+### Launch
 
-Action cũng là một kiểu truyền thông dữ liệu giữa các node trong ROS 2, nó được dùng cho các nhiệm vụ có thời gian hoạt động dài. Action bao gồm 3 phần: mục tiêu (goal), phản hồi (feedback) và kết quả (result).
+Một hệ thống ROS 2 thông thường chứa rất nhiều node cùng chạy trên rất nhiều tiến trình (và cả trên nhiều máy khác nhau).
 
-Action được xây dựng dựa trên topic và service. Cách hoạt động tương tự như service ngoại trừ việc action có thể hủy được.
+`Launch` trong ROS 2 là tự động chạy nhiều node với nhau thành một câu lệnh duy nhất. Nó giúp người dùng mô tả cấu hình của hệ thống sau đó thực thi chúng như đã mô tả. Cấu hình của hệ thống bao gồm việc chạy những chương trình nào, ở đâu, các tham số như thế nào...
 
-Action sử dụng mô hình client-server, tương tự như mô hình publisher-subscriber. Một node `action client` gửi một mục tiêu (goal) tới node `action server`. Sau đó `action server` sau đó `action server` thực hiện nhiệm vụ để đạt được mục tiêu đó, trong quá trình thực hiện nhiệm vụ, nó liên tục cập nhật tình hình cho `action client` bằng cách gửi phản hồi (feedback) liên tục về cho `action client`, và khi đã đạt mục tiêu, nó gửi kết quả (result). Mô tả trực quan như hình dưới.
-
-![Action-SingleActionClient.gif](/images/1.nen-tang/Action-SingleActionClient.gif)
-
-Một số lệnh CLI với `action`:
-- `ros2 action list` : Liệt kê danh sách các action trong mạng ROS
-- `ros2 action info <tên_action>`: để hiển thị thông tin action đó, bao gồm client, server.
-- `ros2 interface show <tên_kiểu_action>`: Xem chi tiết kiểu dữ liệu action đó
-- `ros2 action send_goal <tên_action> <tên_kiểu_action> '<dữ_liệu>'`: Gửi request cho action.
-
-Tóm lại, action tương tự service, cho phép thực thi một nhiệm vụ trong một thời gian dài hơn, cung cấp cơ chế phản hồi và có thể hủy được trong quá trình thực hiện. Trong điều hướng robot, một action điển hình là gửi một vị trí mục tiêu (goal) để ra lệnh cho robot di chuyển tới điểm mục tiêu, trong quá trình di chuyển robot liên tục cập nhật thông tin về cho `action client` và cuối cùng là bản tin kết quả khi đã đến được mục tiêu.
-
-#### Một số công cụ hữu ích trong ROS
+### Một số công cụ hữu ích trong ROS
 
 Có một số công cụ rất hữu ích trong quá trình phát triển các ứng dụng với ROS đó là Rviz, rqt_graph, rqt_console, ...
 
